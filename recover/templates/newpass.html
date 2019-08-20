@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block count %}
+    <script src="/static/js/jquery.js"></script>
+    <!-- header area end -->
+    <!-- breadcroumb area start -->
+    <div class="mayabi-breadcroumb blue-bg text-center sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>login</h2>
+                    <h4><a href="/index/">主页 </a>/ 登录</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#   注册登录 表单#}
+    <div class="register-login-area sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mayabi-register-area">
+                                <div class="cart-title mb-20">
+                                    <h2>新密码</h2>
+                                </div>
+                                {#                               注册#}
+                                <form method="post" class="registration-form" id="repass" novalidate>
+                                    {% csrf_token %}
+                                    <div class="single-field mb-30">
+                                        <input class="form-control" type="text" name="password1"
+                                               placeholder="请输入新密码*">
+                                        <span><i class="fa fa-unlock-alt" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        <input class="form-control" type="text" name="password2"
+                                               placeholder="确认新密码*">
+                                        <span><i class="fa fa-unlock-alt" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <button type="button" class="btn btn-type-3" style="margin-left: 45%" onclick="cpass()">提交</button>
+{#                                    <input type="submit" name="" id="" value="提交">#}
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- cart area end -->
+    <!-- footer area start -->
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        function cpass() {
+            $.ajax({
+                url: "{{ urls }}",
+                type: 'post',
+                data: $('#repass').serialize(),
+                success: function (msg) {
+                    if (msg.code==401){
+                        msg=msg.msg
+                    }else if(msg.code==402){
+                        msg=msg.msg
+                    }else if(msg.code==200){
+                          window.location.href = '{% url 'count:register' %}';
+
+                    } else if (msg.code==404) {
+                        msg=msg.msg
+                    }
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: '提交结果',
+                        // (string | mandatory) the text inside the notification
+                        //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                        text: msg
+                    });
+                }
+            })
+        }
+    </script>
+{% endblock %}

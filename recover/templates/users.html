@@ -1,0 +1,197 @@
+{% extends 'uc_base.html' %}
+{% block cc %}
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+{% endblock %}
+{% block u_count %}
+    {#    个人资料#}
+    <div id="info" class="col-lg-6  ">
+        <div class="panel">
+            <div class="panel-body">
+                <hr/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div><a style="text-align: center; display: block;" id="pic"></a></div>
+                    </div>
+                    <div class="col-md-9">
+                        {% if request.user.is_authenticated %}
+                            <form class="form-horizontal" role="form" method="post" id="u_form">
+                                {% csrf_token %}
+                                <input type="text" style="display: none" name="category" value="1">
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-3 control-label">昵称</label>
+                                    <div class="col-lg-9">
+                                        <input name="name" type="text" class="form-control" id="inputRealName"
+                                               value="{{ user.username }}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputRealName" class="col-lg-3 control-label">邮箱</label>
+                                    <div class="col-lg-9">
+                                        <input name="email" type="email" class="form-control" id="inputEmail"
+                                               value="{{ user.email }}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputTel" class="col-lg-3 control-label">手机号</label>
+                                    <div class="col-lg-9">
+                                        <input name="mobile" type="tel" class="form-control" id="inputTel"
+                                               value={{ user.mobile }}>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputQQ" class="col-lg-3 control-label">QQ</label>
+                                    <div class="col-lg-9">
+                                        <input name="qq" type="text" class="form-control" id="inputQQ"
+                                               value="{{ user.qq }}"
+                                               minlength="5">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-lg-9">
+                                        <button type="button" class="btn btn-danger" id="submit" onclick="tijiao()">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#    修改密码#}
+    <div id="cpass" class="col-lg-6 hide">
+        <div class="panel">
+            <div class="panel-body">
+                <hr/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div><a style="text-align: center; display: block;" id="pic"></a></div>
+                    </div>
+                    <div class="col-lg-9">
+                        <form class="form-horizontal" role="form" method="post" id="cp_form">
+                            {% csrf_token %}
+                            <input type="text" style="display: none" name="category" value="2">
+
+                            <div class="form-group">
+                                <label for="inputPasswordOld" class="col-lg-3 control-label">旧密码</label>
+                                <div class="col-lg-9">
+                                    <input name="oldpassword" type="password" class="form-control" id="inputPasswordOld"
+                                           placeholder="旧密码" minlength="6" required>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPasswordNew1" class="col-lg-3 control-label">新密码</label>
+                                <div class="col-lg-9">
+                                    <input name="newpassword1" type="password" class="form-control"
+                                           id="inputPasswordNew1" placeholder="新密码" minlength="6" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPasswordNew1" class="col-lg-3 control-label">新密码</label>
+                                <div class="col-lg-9">
+                                    <input name="newpassword2" type="password" class="form-control"
+                                           id="inputPasswordNew2" placeholder="请再输入一次新密码" minlength="6" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <button type="button" class="btn btn-danger" onclick="cp()">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        {{ ret_info }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="qllo" class="col-lg-6 hide">
+        <div class="panel">
+            <div class="panel-body">
+                <hr/>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        {% for i in obl %}
+                            <ul style="padding: 10px;">
+                                <li style="width: 600px">{{ i.title }}</li>
+                                <li>答案：{{ i.answer }}</li>
+                                <li>{{ i.content }}</li><span><a href="">取消点赞</a></span>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="qclo" class="col-lg-6 hide ">
+        <div class="panel">
+            <div class="panel-body">
+                <hr/>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        {% for i in obc %}
+                            <ul style="padding: 10px;">
+                                <li style="width: 600px">{{ i.title }}</li>
+                                <li>答案：{{ i.answer }}</li>
+                                <li>{{ i.content }}</li><span><a href="">取消收藏</a></span>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        function tijiao() {
+            $.ajax({
+                url: "{% url 'count:users' %}",
+                type: "post",
+                data: $("#u_form").serialize(),
+                success: function (msg) {
+                    $('#inputRealName').attr('value', msg.msg.username);
+                    $('#inputEmail').attr('value', msg.msg.email);
+                    $('#inputTel').attr('value', msg.msg.mobile);
+                    $('#inputQQ').attr('value', msg.msg.qq)
+                },
+                error: function (msg) {
+                    alert('出错了，请刷新重试~')
+                }
+            })
+        }
+
+        function cp() {
+
+            $.ajax({
+                url: "{% url 'count:users' %}",
+                type: "post",
+                data: $("#cp_form").serialize(),
+                success: function (msg) {
+                    msg = msg.msg;
+
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: '提交结果',
+                        // (string | mandatory) the text inside the notification
+                        //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                        text: msg,
+                    });
+                }
+            })
+
+        }
+    </script>
+{% endblock %}

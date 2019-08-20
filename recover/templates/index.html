@@ -1,0 +1,469 @@
+﻿{% extends 'base.html' %}
+{% block css %}
+    <style>
+        .blog-img-ctg {
+            width: 100%;
+        }
+
+        .blog-img-ctg img {
+            margin-left: 15px;
+        }
+
+        .imgsz {
+            width: 100%;
+            height: 100%;
+            margin-top: 40px;
+        }
+
+        .bbb:before {
+            background: rgba(37, 37, 37, 0.3);
+        }
+
+        .sec-p-100 {
+            padding: 20px 0;
+            margin: 65px 0px 25px 0px;
+        }
+
+        .fu {
+            float: left;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .kong {
+
+        }
+    </style>
+{% endblock %}
+{% block cout %}
+
+
+{% endblock %}
+
+{% block count %}
+    <div class="slider-area">
+        <div class="mayabi-main-slider text-center">
+            <div class="mayabi-single-slider slid-bg-1">
+                <div class="mayabi-single-table">
+                    <div class="mayabi-single-tablecell">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 style="font-size: 40px" class="kong">mayabi <br/>这个网站虽然不好看，但是是个好网站！</h1>
+                                    <p class="kong" style="font-size: 20px;margin-left: 800px;color: white">--鲁迅</p>
+                                    <a href="/count/login" class="btn btn-type-2 kong">加入我们</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {#    图片轮播#}
+    <div class="about-area sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="section-title text-center mb-70">
+                        <h2 id="we">我们的家园</h2>
+                        <img src="/static/img/separetor-1.png" alt="separetor"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-img owl-carousel owl-theme">
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/lvs4.png" alt="lvs4-1" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/ls001.png" alt="ls001-2"
+                                             class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/6.png" alt="6-2" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/ls002.png" alt="ls002-2" class="img-fluid"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img owl-carousel owl-theme">
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wur12.png" alt="wur12-1" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wr02.png" alt="wr02-2" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wuran10.png" alt="wuran10-2" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wuran0002.png" alt="wuran0002-2" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wuran0003.png" alt="wuran0003-2" class="img-fluid"/></a>
+                        </div>
+                        <div class="about-single-img">
+                            <a href="#"><img src="/static/img/index/wuran0004.png" alt="wuran0004-2" class="img-fluid"/></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="section-title text-center mb-70" style="margin-bottom: 0px">
+                        <p style="float: left;font-size: 15px;color: black;font-weight: 900">曾经</p>
+                        <p style="float: right;font-size: 15px;color: black;font-weight: 900">现在</p><br/>
+                        <p style="font-size: 18px;font-weight: 900;color: black;margin-top: 15px">保护环境，让我们一起行动起来</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Lunbo-video">
+
+            <div class="Lunbo-video-cont" style="width: 1105px">
+                <div class="video">
+                    <div><img src="/static/img/left.png" class="Lunbobutton"></div>
+                    <div>
+                        <!-- 这里改视频源 -->
+                        <ul>
+                            <li class="video1">
+                                <div>
+                                    <video id="v001" onmouseover="mouseOver1()" onmouseout="mouseOut1()"
+                                           src="https://ksv-video-publish.cdn.bcebos.com/381f7ef92b8c76ce6646e47220f7a85050fd76f8.mp4?auth_key=1612356523-0-0-a8558fb587c6b5c369571aeb3d5a96b1"
+                                           preload="auto"
+                                           poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=aefacdaea251f3dec3e7ef26fb9ecd29/ac345982b2b7d0a23f1801f9c6ef76094a369a84.jpg"></video>
+                                </div>
+                            </li>
+                            <li class="video2">
+                                <div>
+                                    <video id="v002" onmouseover="mouseOver2()" onmouseout="mouseOut2()"
+                                           src="https://ksv-video-publish.cdn.bcebos.com/b0d49288d533d067d4c1c26807fe7b4f3f3aa91b.mp4?auth_key=1612356523-0-0-298959609f563034a52bb493995f8e7a"
+                                           preload="auto"
+                                           poster="//i2.hdslb.com/bfs/archive/4572a2cd4adaa89e758c630c56dadda4ec46b132.jpg@320w_200h.webp"></video>
+                                </div>
+                            </li>
+                            <li class="video3">
+                                <div>
+                                    <video id="v003" onmouseover="mouseOver3()" onmouseout="mouseOut3()"
+                                           src="https://ksv-video-publish.cdn.bcebos.com/7398a815963d9cf2800acf01c60f89705c7b5e3f.mp4?auth_key=1612356523-0-0-30f00dd2cc49d404680ef83e1d84ad7e"
+                                           preload="auto"
+                                           poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=7f2932db6663f6241c086f41e834d6ce/7af40ad162d9f2d3da1a9d0da4ec8a136227cccd.jpg"></video>
+                                </div>
+                            </li>
+                            <li class="video4">
+                                <div>
+                                    <video id="v004" onmouseover="mouseOver4()" onmouseout="mouseOut4()"
+                                           src="http://upos-hz-mirrorks3u.acgvideo.com/upgcxcode/35/50/91915035/91915035-1-15.flv?e=ig8euxZM2rNcNbRM7WdVhoM17wUVhwdEto8g5X10ugNcXBlqNxHxNEVE5XREto8KqJZHUa6m5J0SqE85tZvEuENvNo8g2ENvNo8i8o859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859r1qXg8gNEVE5XREto8z5JZC2X2gkX5L5F1eTX1jkXlsTXHeux_f2o859IB_\u0026uipk=5\u0026nbs=1\u0026deadline=1565966171\u0026gen=playurl\u0026os=ks3u\u0026oi=1911961352\u0026trid=46c6eb8571364eef94f7f900bc68ee57u\u0026platform=pc\u0026upsig=ba970020549b3b35334a418772dda7fc\u0026uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform\u0026mid=0"
+                                           preload="auto"
+                                           poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=44de982d0455b3199cacd4372cd9bf10/dcc451da81cb39db5de0b37ade160924ab1830fe.jpg"></video>
+                                </div>
+                            </li>
+                            <li class="video5">
+                                <div>
+                                    <video id="v005" onmouseover="mouseOver5()" onmouseout="mouseOut5()"
+                                           src="blob:http://player.bilibili.com/08a8828b-ad1c-48b1-a821-6a2b89f10485"
+                                           preload="auto" poster="/static/img/index/lvs.jpg"></video>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div><img src="/static/img/right.png" class="Lunbobutton"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {# 垃圾分类点对点系列#}
+    <div class="portfolio-area text-center mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mx-auto" style="margin-top: 100px">
+                    <img src="/static/img/index/zhu01.png" class="imgsz" alt="">
+                </div>
+
+                <div class="col-md-6 mx-auto" style="margin-top: 100px">
+                    <div class="section-title text-center mb-70">
+                        <h2>垃圾分类点对点</h2>
+                        <img src="/static/img/separetor-1.png" alt="separetor"/>
+                        <div class="about-img1 owl-carousel owl-theme">
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/glt.png" alt="about-1"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/st.png" alt="about-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/hst.png" alt="about-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/yht.png" alt="about-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mx-auto" style="margin-top: 100px">
+                    <img src="/static/img/index/zhu.png" class="imgsz" alt="">
+                </div>
+
+            </div>
+        </div>
+        <!-- about 万能搜 end -->
+        <div class="subscribe-form sec-p-100 text-center blue-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <h2>万能搜搜</h2>
+                        <p>搜垃圾，搜废品~</p>
+                        <div class="subscribe-input">
+                            <input id="sear" class="form-control" type="text" placeholder="请输入你想查询的关键字" name="laji">
+                            <button type="button" class="btn btn-type-4" onclick="searchs()">搜搜</button>
+                        </div>
+                        <div>
+                            <div>
+                                <h3 id="title5" class="hide"
+                                    style="font-size: 18px;margin-top: 20px;width: 300px;text-align: left;margin-bottom: 10px">
+                                    为您搜到以下结果：</h3>
+                            </div>
+                            <div id="answer" style="padding-bottom: 2px;">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#        选择#}
+        <ul class="portfolio-menu-1">
+            <li data-filter="*" class="active">全部</li>
+            <li data-filter=".desig">干垃圾</li>
+            <li data-filter=".dvelo">湿垃圾</li>
+            <li data-filter=".illus">可回收垃圾</li>
+            <li data-filter=".photo">有害垃圾</li>
+        </ul>
+        {#        各种垃圾 -->#}
+        <div class="typ1-all-folio" style="margin: 0 auto;width: 80%">
+            <div class="single-folio typ1-folios-item illus wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/hs04.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/yh01.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s02.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/hs02.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s01.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s05.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl04.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/hs01.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/yh02.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item illus wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/hs03.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/yh03.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s04.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s03.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/s06.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item  desig wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl02.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl01.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl03.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl05.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/yh04.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/gl06.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/hs05.jpg" alt="" class="img-fluid"/>
+            </div>
+            <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                <img src="/static/img/index/yh05.jpg" alt="" class="img-fluid"/>
+            </div>
+        </div>
+        <a href="#" class="btn btn-type-3 mt-30">查看全部</a>
+    </div>
+    <!-- portfolio area end -->
+    <!-- services area start -->
+
+    <!-- services area end -->
+    <!-- counter area start -->
+
+    <!-- counter area end -->
+    <!-- team member area start -->
+    <!-- team member area end -->
+    <!-- testimonial area start -->
+    <!-- testimonial area end -->
+    <!-- blog area start -->
+    <div class="blog-area sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="section-title mb-70 text-center">
+                        <h2>环保热点</h2>
+                        <img src="/static/img/separetor-1.png" alt="separetor"/>
+                        <p>环保在线~</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-blog">
+                        <div class="blog-img-ctg">
+                            {{ h.img_url |safe }}
+                        </div>
+                        <div class="single-blog-content">
+                            {{ h.s_title |safe }}
+                            {{ h.s_ab |safe }}
+                            <a href="{% url 'news' tp='h' page=1 %}" class="btn">more <i
+                                    class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-blog">
+                        <div class="blog-img-ctg">
+                            {{ s.img_url |safe }}
+                        </div>
+                        <div class="single-blog-content">
+                            {{ s.s_title |safe }}
+                            {{ s.s_ab |safe }}
+                            <a href="{% url 'news' tp='s' page=1 %}" class="btn">more <i
+                                    class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-blog">
+                        <div class="blog-img-ctg">
+                            {{ q.img_url |safe }}
+                        </div>
+                        <div class="single-blog-content">
+                            {{ q.s_title |safe }}
+                            {{ q.s_ab |safe }}
+                            <a href="{% url 'news' tp='q' page=1 %}" class="btn">more <i
+                                    class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- blog area end -->
+    <!-- subscribe form area start -->
+
+    <!-- subscribe form area end -->a
+    {#    <!-- footer area start -#}
+
+
+{% endblock %}
+{% block js %}
+    {% if request.user.is_authenticated %}
+        <script>
+            $('.mayabi-single-slider').addClass('bbb');
+            $('h1.kong').text('欢迎加入环保大家庭');
+            $('a.kong').text('欢迎加入环保大家庭');
+            $('a.kong').attr('href','#we');
+        </script>
+    {% else %}
+        <script>
+            $('.mayabi-single-slider').removeClass('bbb')
+        </script>
+    {% endif %}
+    <script>
+        window.onload = function () {
+            $("a").removeAttr("target");
+        };
+
+        function searchs() {
+
+            $.ajax({
+                url: '{%  url "apis:search" %}',
+                type: 'get',
+                data: {'kw': $('#sear').val()},
+                success: function (msg) {
+                    $('#title5').removeClass('hide');
+                    $('#answer').children().remove();
+                    var lan = msg.ak;
+                    if (lan == 1) {
+                        $('#title5').html('好像找不到哦，换一个姿势试一试~');
+                    } else {
+                        $('#title5').html('为您搜到以下结果：');
+
+                        var num = (Object.keys(msg.detail).length);
+                        for (var i = num - 1; i >= 0; i--) {
+                            var page = $('<p>');
+                            var span = $('<span>');
+                            var br = $('<Br/>');
+                            page.html(Object.keys(msg.detail)[i]);
+                            page.attr('class', 'fu');
+                            span.html(":" + Object.values(msg.detail)[i]);
+                            span.attr('class', 'fu');
+                            $('#answer').append(page);
+                            $('#answer').append(span);
+                            $('#answer').append(br);
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+    {#    <script type="text/javascript" src="/static/js/jquery.min.js"></script>#}
+
+    <script type="text/javascript" src="/static/js/videoLunbo.js"></script>
+
+    <link rel="stylesheet" href="/static/css/videoLunbo.css">
+
+{% endblock %}

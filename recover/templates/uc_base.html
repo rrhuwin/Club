@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+        .page li {
+            margin-top: 50px;
+            line-height: 50px;
+
+        }
+
+        .cli {
+            border-right: 1px solid #777;
+        }
+
+        .aca {
+            font-weight: 900;
+            border-right: 2px solid #1b78c7;
+            z-index: 999;
+        }
+
+        .ca {
+            padding: 15px;
+            color: black;
+            z-index: 100;
+        }
+
+
+    </style>
+{% endblock %}
+{% block count %}
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <aside class=" col-lg-3">
+                    <ul class="nav page" style="width: 130px">
+                        <li id="l1" class="cli"><a href="#" class="aca ca" onclick="a1()">个人资料</a></li>
+                        <li id="l2"><a href="#" class="ca" onclick="a2()">修改密码</a></li>
+                        <li id="l3"><a href="#" class="ca" onclick="a3()">我点赞的题目</a></li>
+                        <li id="l4"><a href="#" class="ca" onclick="a4()">我收藏的题目</a></li>
+                    </ul>
+                </aside>
+                {% block u_count %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block jss %}
+    <script>
+        function a1() {
+            $('#cpass').addClass('hide');
+            $('#qllo').addClass('hide');
+            $('#qclo').addClass('hide');
+            $('#info').removeClass('hide');
+            $('#l1').addClass('cli');
+            $('#l2').removeClass('cli');
+            $('#l3').removeClass('cli');
+            $('#l4').removeClass('cli');
+            $('#l1').children().addClass('aca');
+            $('#l2').children().removeClass('aca');
+            $('#l3').children().removeClass('aca');
+            $('#l4').children().removeClass('aca');
+        }
+
+        function a2() {
+            $('#info').addClass('hide');
+            $('#qllo').addClass('hide');
+            $('#qclo').addClass('hide');
+            $('#cpass').removeClass('hide');
+            $('#l2').addClass('cli');
+            $('#l1').removeClass('cli');
+            $('#l3').removeClass('cli');
+            $('#l4').removeClass('cli');
+            $('#l2').children().addClass('aca');
+            $('#l1').children().removeClass('aca');
+            $('#l3').children().removeClass('aca');
+            $('#l4').children().removeClass('aca');
+        }function a3() {
+            $('#info').addClass('hide');
+            $('#qllo').removeClass('hide');
+            $('#qclo').addClass('hide');
+            $('#cpass').addClass('hide');
+            $('#l2').removeClass('cli');
+            $('#l1').removeClass('cli');
+            $('#l3').addClass('cli');
+            $('#l4').removeClass('cli');
+            $('#l2').children().removeClass('aca');
+            $('#l1').children().removeClass('aca');
+            $('#l3').children().addClass('aca');
+            $('#l4').children().removeClass('aca');
+        }function a4() {
+            $('#info').addClass('hide');
+            $('#qllo').addClass('hide');
+            $('#qclo').removeClass('hide');
+            $('#cpass').addClass('hide');
+            $('#l2').removeClass('cli');
+            $('#l1').removeClass('cli');
+            $('#l3').removeClass('cli');
+            $('#l4').addClass('cli');
+            $('#l2').children().removeClass('aca');
+            $('#l1').children().removeClass('aca');
+            $('#l3').children().removeClass('aca');
+            $('#l4').children().addClass('aca');
+        }
+
+
+
+
+    </script>
+{% endblock %}
+

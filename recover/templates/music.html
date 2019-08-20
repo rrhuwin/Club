@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>jQuery悬浮HTML5音乐播放器插件QPlayer</title>
+    <link type="text/css" rel="stylesheet" href="/static/js/music/player.css">
+    <link href="https://cdn.bootcss.com/font-awesome/5.10.0-12/css/all.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/5.10.0-12/css/all.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="QPlayer">
+    <div id="pContent">
+
+        <div id="player">
+
+            <span class="cover"></span>
+            <div class="ctrl">
+                <div class="contr1">
+                        <span id="voice">
+                        <i class="fa fa-volume-off hide"></i><i class="fa fa-volume-down hide"></i><i
+                                class="fa fa-volume-up"></i></span>
+                    <span id="voicebar"><input id="voicerange" min="0" max="1" step="0.1" type="range"
+                                               onchange="setvolume()"></span>
+                </div>
+                <div class="musicTag marquee" style="margin-top:10px">
+                    <strong>歌名</strong>
+                    <span> - </span>
+                    <span class="artist">歌手</span>
+                </div>
+                <div class="progress">
+                    <div class="timer left">0:00</div>
+                    <div class="contr">
+                        <div class="rewind icon"></div>
+                        <div class="playback icon"></div>
+                        <div class="fastforward icon" style="display: block"></div>
+                    </div>
+
+                    <div class="right">
+                        <div class="liebiao icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ssBtn">
+            <div class="adf"></div>
+        </div>
+
+    </div>
+    <ol id="playlist"></ol>
+    <div style="text-align:center " class="hide" id="inn">
+        <input type="text" id="neirong">
+        <input type="button" value="搜索" id="vtn" onclick="fs()">
+    </div>
+{#    <div style="text-align:center " class="hide" id="inn">#}
+{#        <form action="/a/" method="post">#}
+{#            {% csrf_token %}#}
+{#            <input type="text" id="neirong">#}
+{#            <input type="submit" value="搜索" id="vtn" >#}
+{#        </form>#}
+{##}
+{#    </div>#}
+</div>
+<div id="c"></div>
+<script type="text/javascript" src="/static/js/music/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/music/jquery.marquee.min.js"></script>
+<script>
+
+</script>
+<script>
+    function setvolume() {
+        var voice = $("#voicerange")[0].valueAsNumber;
+        $("audio")[0].volume = voice;
+        if (voice == 0) {
+            $(".fa-volume-down,.fa-volume-up").hide();//隐藏声音中等和最大图标
+            $(".fa-volume-off").show();//显示声音关闭图标
+            $($("#voiceInBar")[0]).css("width", "0%");
+        } else if (voice > 0.5) {
+            $(".fa-volume-down,.fa-volume-off").hide();//隐藏声音中等和关闭
+            $(".fa-volume-up").show();//显示声音最大
+            $($("#voiceInBar")[0]).css("width", "100%");
+        } else {
+            $(".fa-volume-up,.fa-volume-off").hide();//隐藏声音中等和关闭
+            $(".fa-volume-down").show();//显示声音最大
+        }
+    }
+
+</script>
+<script>
+    var playlist = {{ id|safe }};
+    var isRotate = true;
+    var autoplay = false;
+    var asd = $('#c');
+
+    function fs() {
+
+        var v = $('#neirong').val();
+        $.ajax({
+            async: false,
+            url: "/index/",
+            type: "post",
+            data: {"name": v},
+            success: function (ids) {
+                {#playlist = ids;#}
+                ids = JSON.parse(ids);
+                playlist = ids;
+                {#console.log(playlist);#}
+                {#window.location.reload()#}
+
+            }
+        })
+    }
+
+    console.log(playlist);
+
+    {#console.log( typeof playlist)#}
+</script>
+<script type="text/javascript" src="/static/js/music/player.js"></script>
+<script>
+    function bgChange() {
+        var lis = $('.lib');
+        for (var i = 0; i < lis.length; i += 2)
+            lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+    }
+
+    window.onload = bgChange;
+
+
+</script>
+</body>
+</html>

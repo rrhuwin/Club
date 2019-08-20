@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+
+        .cistLift {
+            width: 800px;
+            padding-left: 20px;
+            float: left;
+        }
+
+        .leftBox {
+            width: 800px;
+            float: left;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .leftBox h3 {
+            width: 590px;
+            float: right;
+        {#height: 25px;#} overflow: hidden;
+        }
+
+        .leftBox h3 a {
+            font-size: 18px;
+            line-height: 25px;
+            color: #333;
+            font-weight: 900;
+        }
+
+        .leftBox h3 img {
+            margin-left: 10px;
+            position: relative;
+            top: -3px;
+        }
+
+        .leftBox > a > img {
+            width: 188px;
+            height: 110px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        .leftBox p {
+            width: 590px;
+            float: right;
+            font-size: 16px;
+            line-height: 25px;
+            color: #666;
+            margin-top: 5px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .leftBox .read {
+            width: 590px;
+            float: right;
+            margin-top: 10px;
+            position: relative;
+            text-align: right;
+        }
+
+        .leftBox .read > span {
+            font-size: 12px;
+            line-height: 20px;
+            color: #999;
+            /* font-family: "\5b8b\4f53"; */
+            padding-left: 25px;
+            display: inline-block;
+            margin-left: 17px;
+        }
+
+        .wrapper {
+            width: 1180px;
+            margin: auto;
+            margin-top: 50px;
+            background: #fff;
+            /* padding-bottom: 30px; */
+        }
+    </style>
+{% endblock %}
+{% block count %}
+    <div class="row wrapper">
+        <div class="col-md-9 wrapper ">
+            <div class="cistLift">
+                {% for i in  z_c_obj %}
+                    <div class="leftBox">
+                        {{ i.s_title|safe }}
+                        {{ i.img_url|safe }}
+                        {{ i.s_ab|safe }}
+                        <div class="read">
+                            <span>{{ i.time }}</span>
+                        </div>
+                        {#                        <p class="cl-card-more"><a href="/content/?pid={{ i.id }}">阅读更多...</a></p>#}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% for i in s %}
+        <a href="{{ i.0 }}">{{ i.0 }}</a>
+    {% endfor %}
+        <div class="col-md-3"><p>asdsadsadsad</p></div>
+    </div>
+    {# 分页#}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {{ pageinfo.a_page |safe }}
+
+        </ul>
+    </nav>
+
+{% endblock %}
+{% block js %}
+    <script>
+    {#function func1(){#}
+    {#    $("a").removeAttr("title");#}
+    window.onload = function(){
+        $("a").removeAttr("target");
+    }
+    </script>
+{#    <script type="text/javascript">#}
+{#    function myfun() 　　{ 　　 #}
+{#        alert("this window.onload"); 　　#}
+{#    } 　　#}
+{#    /*用window.onload调用myfun()*/　#}
+{#    　#}
+{#    // 不要括号#}
+{#    window.onload = myfun;#}
+{#</script>#}
+{% endblock %}

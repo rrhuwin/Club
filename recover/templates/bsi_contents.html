@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+        .leftTop {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dcdcdc;
+            position: relative;
+            margin-bottom: 30px;
+            height: 130px;
+        }
+
+        .newsContent {
+            font-size: 17px;
+            line-height: 36px;
+            color: #333;
+            /* font-family: "\5b8b\4f53"; */
+            /* text-indent: 32px; */
+
+        }
+
+        .newsContent img {
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 1180px;
+            margin: auto;
+            margin-top: 50px;
+            background: #fff;
+            /* padding-bottom: 30px; */
+        }
+
+        .refer {
+            float: right;
+            margin: 30px;
+            font-size: 15px;
+        }
+
+        .qefwer {
+            float: left;
+            margin: 30px;
+            font-size: 15px;
+        }
+
+        .forp {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block count %}
+    <div class="row wrapper">
+
+        <div class="col-md-12 wrapper ">
+
+            <div class="cistLift">
+
+                <div class="leftTop">
+                    {{ content.title|safe }}
+                    <div class="qefwer">文章来源：搜狐网</div>
+                </div>
+                <div class="newsContent">
+                    {{ content.content|safe }}
+                </div>
+                <div class="refer">文章来源：搜狐网</div>
+
+            </div>
+
+        </div>
+{#        <div class="col-md-3"><p>asdsadsadsad</p></div>#}
+
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script>
+        $("p:has(img)").addClass('forp')
+    </script>
+
+{% endblock %}

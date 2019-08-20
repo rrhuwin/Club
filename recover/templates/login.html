@@ -1,0 +1,377 @@
+﻿{% extends 'base.html' %}
+{% block cout %}
+    <li><a href="{% url 'count:register' %}">登录/注册 </a></li>
+{% endblock %}
+{% block count %}
+    <script src="/static/js/jquery.js"></script>
+    <!-- header area end -->
+    <!-- breadcroumb area start -->
+    <div class="mayabi-breadcroumb blue-bg text-center sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>login</h2>
+                    <h4><a href="/index/">主页 </a>/ 登录</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#   注册登录 表单#}
+    <div class="register-login-area sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mayabi-register-area">
+                                <div class="cart-title mb-20">
+                                    <h2>注册</h2>
+                                </div>
+{#                               注册#}
+                                <form action="#" class="registration-form" id="register1" novalidate>
+                                    {% csrf_token %}
+                                    <div class="single-field mb-30">
+                                        {{ form.username }}
+                                        <span><i class="fa fa-user" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ form.email }}
+                                        <span><i class="fa fa-envelope" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ form.password }}
+                                        <span><i class="fa fa-unlock-alt" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ form.password2 }}
+                                        <span><i class="fa fa-unlock-alt" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ form.mobile }}
+                                        <span><i class="fa fa-phone" style="width: 150px;height:27px;"></i></span>
+
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ form.mobile_captcha }}
+                                        <input type="button" value="发送短信" onclick="sendmessage(this,60);"
+                                               class="btn btn-info"
+                                               style="background:rgb(249,87,89);height:55px;width: 210px;margin-top:-80px;margin-left:520px"/>
+                                    </div>
+                                    <button class="btn btn-type-3" id="register_btn" type="button" onclick="chuce()">
+                                        注册
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="separetor-or mt-30 mb-30 text-center ">or</div>
+
+                            <div class="mayabi-login-area">
+                                <div class="cart-title mb-20">
+                                    <h2>登录</h2>
+                                </div>
+                                {#                                登录#}
+                                <form action="#" id="denglus" class="registration-form" novalidate>
+                                    {% csrf_token %}
+                                    <div class="single-field mb-30">
+                                        {{ l_form.username }}
+                                        <span><i class="fa fa-user" style="width: 150px;height:27px;"></i></span>
+
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ l_form.password }}
+                                        <span><i class="fa fa-unlock-alt" style="width: 150px;height:27px;"></i></span>
+
+                                    </div>
+                                    <div class="single-field mb-30">
+                                        {{ l_form.captcha }}
+                                        <a href="javascript:void(0); " style="margin-left:520px;">
+                                            <img id="captchaimg"  style="margin-top:-80px"/></a>
+                                    </div>
+                                    <button class="btn btn-type-3" id="denglu1" type="button" onclick="deng()">登录
+                                    </button>
+                                    <a class="msg" style="color: red"></a>
+
+
+                                    <a href="{% url 'count:change' %}">忘记密码？</a>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- search wedget -->
+                            <div class="single-sid-wdg">
+                                <h4 class="sid-wdg-title"><strong>搜搜看</strong> 嗖~
+                                    <span></span></h4>
+                                <form action="#" class="wdg-search-form">
+                                    <input type="text" placeholder="环保的知识or新闻...">
+                                    <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- related products wedget -->
+                            <div class="single-sid-wdg">
+                                <h4 class="sid-wdg-title">垃圾回收<strong>小技巧~</strong> <span></span></h4>
+                                <ul class="rel-product-wraper">
+                                    <li>
+                                        <div class="rel-product-img">
+                                            <a href="#">
+                                                <img src="/static/img/wdg/wdg-img-8.jpg" alt="blog thumbnail"
+                                                     class="img-fluid">
+                                            </a>
+                                        </div>
+
+                                        <div class="rel-product-content">
+
+                                            <h5>
+                                                <a href="#">your product name</a>
+                                                <span><strong>$8.00</strong> <del>$88.00</del></span>
+                                            </h5>
+                                        </div>
+
+                                    </li>
+
+                                    <li>
+                                        <div class="rel-product-img">
+                                            <a href="#">
+                                                <img src="/static/img/wdg/wdg-img-6.jpg" alt="blog thumbnail"
+                                                     class="img-fluid">
+                                            </a>
+                                        </div>
+
+                                        <div class="rel-product-content">
+
+                                            <h5>
+                                                <a href="#">your product name</a>
+                                                <span><strong>$3.00</strong> <del>$11.00</del></span>
+                                            </h5>
+                                        </div>
+
+                                    </li>
+
+                                    <li>
+                                        <div class="rel-product-img">
+                                            <a href="#">
+                                                <img src="/static/img/wdg/wdg-img-3.jpg" alt="blog thumbnail"
+                                                     class="img-fluid">
+                                            </a>
+                                        </div>
+
+                                        <div class="rel-product-content">
+
+                                            <h5>
+                                                <a href="#">your product name</a>
+                                                <span><strong>$14.00</strong> <del>$35.00</del></span>
+                                            </h5>
+                                        </div>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+{#待定访问量，可删#}
+                            <div class="single-sid-wdg" style="margin-top: 150px">
+                                <h4 class="sid-wdg-title"><strong>post</strong> archive</h4>
+                                <ul class="wdg-post-archive">
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>all<span>470</span></a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>jun 2016<span>(11)</span></a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>aug 2017<span>(02)</span></a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>sep 2018<span>(13)</span></a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>dec 2019<span>(444)</span></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- cart area end -->
+    <!-- footer area start -->
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        {# 发送短信验证码 #}
+
+        function sendmessage(obj, second) {
+            var telRegex = /(13|14|15|17|18)\d{9}/;
+            if (telRegex.test($.trim($("#pho").val()))) {
+                $.ajax({
+                    url: "{% url 'count:get_mobile_captcha' %}",
+                    type: "GET",
+                    dataType: "json",
+                    data: {"mobile": $("#pho").val()},
+                    success: function (data) {
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '提交结果',
+                            // (string | mandatory) the text inside the notification
+                            //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                            text: data.msg
+                        });
+                    }
+                });
+                countDown(obj, second)
+            } else {
+                $.gritter.add({
+                    // (string | mandatory) the heading of the notification
+                    title: '提交结果',
+                    // (string | mandatory) the text inside the notification
+                    //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                    text: '手机号有误'
+                });
+            }
+        }
+
+        function countDown(obj, second) {
+            // 如果秒数还是大于0，则表示倒计时还没结束
+            if (second >= 0) {
+                // 获取默认按钮上的文字
+                if (typeof buttonDefaultValue === 'undefined') {
+                    buttonDefaultValue = obj.defaultValue;
+                }
+                // 按钮置为不可点击状态
+                obj.disabled = true;
+                // 按钮里的内容呈现倒计时状态
+                obj.value = buttonDefaultValue + '(' + second + ')';
+                // 时间减一
+                second--;
+                // 一秒后重复执行
+                setTimeout(function () {
+                    countDown(obj, second);
+                }, 1000);
+                // 否则，按钮重置为初始状态
+            } else {
+                // 按钮置未可点击状态
+                obj.disabled = false;
+                // 按钮里的内容恢复初始状态
+                obj.value = buttonDefaultValue;
+            }
+        }
+    </script>
+    <script>
+        {#$("#register_btn").click(function () {#}
+        // some_check
+        function chuce() {
+            $.ajax({
+                url: "{% url 'count:register' %}",
+                type: "POST",
+                dataType: "json",
+                data: $("#register1").serialize(),
+                success: function (data) {
+                    console.log(data.msg);
+                    if (data.status == 200) {
+                        window.location.href = '{% url 'index' %}';
+                    } else {
+                        msg = "新错误类型";
+                        if (data.status == 400 || data.status == 401) {
+                            msg = data.msg
+                        } else {
+                            for (var i in data.msg) {
+                                msg = data.msg[i];
+                                break
+                            }
+                        }
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '提交结果',
+                            // (string | mandatory) the text inside the notification
+                            //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                            text: msg,
+                        });
+                    }
+                },
+                // 解决csrftoken
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                }
+            });
+        }
+    </script>
+    <script>
+        getcaptchaimg();
+        $("#captchaimg").click(getcaptchaimg);
+
+        function getcaptchaimg() {
+            $.ajax({
+                url: '{% url 'count:get_captcha' %}',
+                type: 'GET',
+                dataType: 'text',
+                success: function (data) {
+                    $('#captchaimg').attr('src', data);
+                }
+            });
+        }
+    </script>
+    <script>
+        // some_check
+        function deng() {
+            var user = $();
+            $.ajax({
+                url: "{% url 'count:login1' %}",
+                type: "POST",
+                dataType: "json",
+                data: $("#denglus").serialize(),
+                success: function (data) {
+                    console.log(data.msg);
+                    if (data.status == 200) {
+                        window.location.href = '{% url 'index' %}';
+                    } else {
+
+                        if (data.status == 403) {
+                            msg = data.msg
+                        } else {
+                            for (var i in data.msg) {
+                                console.log(data.msg[i]);
+                                msg = data.msg[i];
+                                break
+                            }
+                        }
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '提交结果',
+                            // (string | mandatory) the text inside the notification
+                            //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                            text: msg,
+                        });
+                    }
+                },
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                }
+            })
+        }
+    </script>
+    <script>
+        // 这里在form中定义了，如果没定义可以用jquery添加事件
+        // $("#id_captcha").blur(check_captcha);
+
+        // 当失去焦点时检查验证码
+        function check_captcha() {
+            var captcha_code = $('#cat').val();
+            if (captcha_code.length == 0) {
+                return false
+            }
+            $.ajax({
+                url: '{% url 'count:check_captcha' %}',
+                type: 'GET',
+                dataType: 'json',
+                data: {"captcha_code": captcha_code},
+                success: function (data) {
+                    if (data.code == 400) {
+                        $('.msg').html("验证码错误");
+                    } else {
+                        $('.msg').html("");
+                    }
+                }
+            });
+        };
+    </script>
+{% endblock %}
