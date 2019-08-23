@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+
+        .cistLift {
+            width: 800px;
+            padding-left: 20px;
+            float: left;
+        }
+
+        .leftBox {
+            width: 800px;
+            float: left;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .leftBox h3 {
+            width: 590px;
+            float: right;
+        {#height: 25px;#} overflow: hidden;
+        }
+
+        .leftBox h3 a {
+            font-size: 18px;
+            line-height: 25px;
+            color: #333;
+            font-weight: 900;
+        }
+
+        .leftBox h3 img {
+            margin-left: 10px;
+            position: relative;
+            top: -3px;
+        }
+
+        .leftBox > a > img {
+            width: 188px;
+            height: 110px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        .leftBox p {
+            width: 590px;
+            float: right;
+            font-size: 16px;
+            line-height: 25px;
+            color: #666;
+            margin-top: 5px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .leftBox .read {
+            width: 590px;
+            float: right;
+            margin-top: 10px;
+            position: relative;
+            text-align: right;
+        }
+
+        .leftBox .read > span {
+            font-size: 12px;
+            line-height: 20px;
+            color: #999;
+            /* font-family: "\5b8b\4f53"; */
+            padding-left: 25px;
+            display: inline-block;
+            margin-left: 17px;
+        }
+
+        .wrapper {
+            width: 1180px;
+            margin: auto;
+            margin-top: 50px;
+            background: #fff;
+            /* padding-bottom: 30px; */
+        }
+    </style>
+{% endblock %}
+{% block count %}
+    <div id="aim-pjax">
+
+        <div class="row wrapper">
+            <div class="col-md-9 wrapper ">
+                <div class="cistLift">
+                    {% for i in  z_c_obj %}
+                        <div class="leftBox">
+                            {{ i.s_title|safe }}
+                            {{ i.img_url|safe }}
+                            {{ i.s_ab|safe }}
+                            <div class="read">
+                                <span>{{ i.time }}</span>
+                            </div>
+                            {#                        <p class="cl-card-more"><a href="/content/?pid={{ i.id }}">阅读更多...</a></p>#}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% for i in s %}
+                <a href="{{ i.0 }}" data-pjax="true">{{ i.0 }}</a>
+            {% endfor %}
+            <div class="col-md-3">
+                <div style="margin-top: 65px;margin-bottom: 65px"><img style="width: 280px"
+                                                                       src="/static/img/index/search.jpg" alt=""></div>
+                <h3 style="font-size: 22px;font-weight: 500;margin-bottom: 19px;">时时刻刻做好垃圾分类</h3>
+                <div class="single-sid-wdg" style="background: #f8f8f8;">
+                    <h4 class="sid-wdg-title"><strong>搜搜看</strong> 嗖~
+                        <span></span></h4>
+                    <form action="#" class="wdg-search-form">
+                        <input type="text" placeholder="垃圾分类我知道~..." id="contents">
+                        <button class="submit-btn" type="button" onclick="find()"><i class="fa fa-search"></i></button>
+                    </form>
+                    <div id="show_answer"></div>
+                    <div id="show_answer2"></div>
+                </div>
+            </div>
+
+            <script>
+                function find() {
+                    $.ajax({
+                        url: '{%  url "apis:search" %}',
+                        type: 'get',
+                        data: {'kw': $('#contents').val()},
+                        success: function (msg) {
+                            $('#show_answer').removeClass('hide');
+                            $('#show_answer2').children().remove();
+                            var lan = msg.ak;
+                            if (lan == 1) {
+                                $('#show_answer').html('好像找不到哦，换一个姿势试一试~');
+
+                            } else {
+                                $('#show_answer').html('为您搜到以下结果：');
+                                $('#show_answer').attr('style', 'margin-bottom: 10px;');
+                                var page = $('<p>');
+                                var span = $('<span>');
+                                var br = $('<Br/>');
+                                page.html(Object.keys(msg.detail)[0]);
+                                page.attr('class', 'fu');
+                                page.attr('style', 'font-size:17px;');
+                                span.html(":" + Object.values(msg.detail)[0]);
+                                span.attr('class', 'fu');
+                                $('#show_answer2').append(page);
+                                $('#show_answer2').append(span);
+                                $('#show_answer2').append(br);
+                                if (Object.values(msg.detail)[0] == "干垃圾") {
+                                    var img = $('<img>');
+                                    var pages = $('<p>');
+                                    pages.html('干垃圾，是人制造的产生的垃圾，比如纸，塑料袋，啤酒瓶。这其中如果有有害垃圾再放在有害垃圾 ')
+                                    img.attr('src', '/static/img/index/glt.png', 'style', 'width:250px;margin-left:-26px');
+                                    img.attr('style', 'width:250px;margin-left:-26px');
+                                    pages.attr('style', 'margin-top: 20px;');
+                                    $('#show_answer2').append(pages);
+                                    $('#show_answer2').append(img);
+
+                                }
+                                else if(Object.values(msg.detail)[0] == "湿垃圾"){
+                                    var img = $('<img>');
+                                    var pages = $('<p>');
+                                    pages.html('湿垃圾又称为厨余垃圾、有机垃圾，即易腐垃圾，指食材废料、剩菜剩饭、过期食品、瓜皮果核、花卉绿植、中药药渣等易腐的生物质生活废弃物。')
+                                    img.attr('src', '/static/img/index/st.png', 'style', 'width:250px;margin-left:-26px');
+                                    img.attr('style', 'width:250px;margin-left:-26px');
+                                    pages.attr('style', 'margin-top: 20px;');
+                                    $('#show_answer2').append(pages);
+                                    $('#show_answer2').append(img);
+                                }else if(Object.values(msg.detail)[0] == "可回收"){
+                                    var img = $('<img>');
+                                    var pages = $('<p>');
+                                    pages.html('可回收物就是可以再生循环的垃圾。本身或材质可再利用的纸类、硬纸板、玻璃、塑料、金属、塑料包装，与这些材质有关的如：报纸、杂志、广告单及其它干净的纸类等皆可回收。')
+                                    img.attr('src', '/static/img/index/hst.png', 'style', 'width:250px;margin-left:-26px');
+                                    img.attr('style', 'width:250px;margin-left:-26px');
+                                    pages.attr('style', 'margin-top: 20px;');
+                                    $('#show_answer2').append(pages);
+                                    $('#show_answer2').append(img);
+                                }else if(Object.values(msg.detail)[0] == "有害垃圾"){
+                                    var img = $('<img>');
+                                    var pages = $('<p>');
+                                    pages.html('有害垃圾指废电池、废灯管、废药品、废油漆及其容器等对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。')
+                                    img.attr('src', '/static/img/index/yht.png', 'style', 'width:250px;margin-left:-26px');
+                                    img.attr('style', 'width:250px;margin-left:-26px');
+                                    pages.attr('style', 'margin-top: 20px;');
+                                    $('#show_answer2').append(pages);
+                                    $('#show_answer2').append(img);
+                                }
+                            }
+                        }
+                    })
+                }
+            </script>
+        </div>
+        {# 分页#}
+        <nav aria-label="Page navigation example" style="margin-top: 30px">
+            <ul class="pagination justify-content-center">
+                {{ pageinfo.a_page |safe }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+﻿{% extends 'base.html' %}
+{% block count %}
+    <div id="aim-pjax">
+        <div class="row wrapper">
+
+            <div class="col-md-12 wrapper " style="width: 1000px">
+
+                <div class="cistLift">
+
+                    <div class="leftTop">
+                        {{ content.title|safe }}
+                        <div class="qefwer">文章来源：搜狐网</div>
+                    </div>
+                    <div class="newsContent">
+                        {{ content.content|safe }}
+                    </div>
+                    <div class="refer">文章来源：搜狐网</div>
+
+                </div>
+
+            </div>
+            {#        <div class="col-md-3"><p>asdsadsadsad</p></div>#}
+
+        </div>
+    </div>
+{% endblock %}
+

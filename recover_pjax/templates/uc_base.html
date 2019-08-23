@@ -1,0 +1,366 @@
+{% extends 'base.html' %}
+
+{% block count %}
+    <div id="aim-pjax">
+
+        <div class="header-area">
+            <div class="container">
+                <div class="row">
+                    <aside class=" col-lg-3">
+                        <ul class="nav page" style="width: 130px">
+                            <li id="l1" class="cli"><a href="#" class="aca ca" onclick="a1()">个人资料</a></li>
+                            <li id="l2"><a href="#" class="ca" onclick="a2()">修改密码</a></li>
+                            <li id="l3"><a href="#" class="ca" onclick="a3()">我点赞的题目</a></li>
+                            <li id="l4"><a href="#" class="ca" onclick="a4()">我收藏的题目</a></li>
+                        </ul>
+                    </aside>
+                    {#            个人资料#}
+                    <div id="info" class="col-lg-6  ">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div><a style="text-align: center; display: block;" id="pic"></a></div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        {% if request.user.is_authenticated %}
+                                            <form class="form-horizontal" role="form" method="post" id="u_form">
+                                                {% csrf_token %}
+                                                <input type="text" style="display: none" name="category" value="1">
+
+                                                <div class="form-group">
+                                                    <label for="inputEmail" class="col-lg-3 control-label">昵称</label>
+                                                    <div class="col-lg-9">
+                                                        <input name="name" type="text" class="form-control"
+                                                               id="inputRealName"
+                                                               value="{{ user.username }}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputRealName" class="col-lg-3 control-label">邮箱</label>
+                                                    <div class="col-lg-9">
+                                                        <input name="email" type="email" class="form-control"
+                                                               id="inputEmail"
+                                                               value="{{ user.email }}">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputTel" class="col-lg-3 control-label">手机号</label>
+                                                    <div class="col-lg-9">
+                                                        <input name="mobile" type="tel" class="form-control"
+                                                               id="inputTel"
+                                                               value={{ user.mobile }}>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputQQ" class="col-lg-3 control-label">QQ</label>
+                                                    <div class="col-lg-9">
+                                                        <input name="qq" type="text" class="form-control" id="inputQQ"
+                                                               value="{{ user.qq }}"
+                                                               minlength="5">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-lg-offset-3 col-lg-9">
+                                                        <button type="button" class="btn btn-danger" id="submit"
+                                                                onclick="tijiao()">提交
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {#    修改密码#}
+                    <div id="cpass" class="col-lg-6 hide">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div><a style="text-align: center; display: block;" id="pic"></a></div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <form class="form-horizontal" role="form" method="post" id="cp_form">
+                                            {% csrf_token %}
+                                            <input type="text" style="display: none" name="category" value="2">
+
+                                            <div class="form-group">
+                                                <label for="inputPasswordOld" class="col-lg-3 control-label">旧密码</label>
+                                                <div class="col-lg-9">
+                                                    <input name="oldpassword" type="password" class="form-control"
+                                                           id="inputPasswordOld"
+                                                           placeholder="旧密码" minlength="6" required>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPasswordNew1"
+                                                       class="col-lg-3 control-label">新密码</label>
+                                                <div class="col-lg-9">
+                                                    <input name="newpassword1" type="password" class="form-control"
+                                                           id="inputPasswordNew1" placeholder="新密码" minlength="6"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPasswordNew1"
+                                                       class="col-lg-3 control-label">新密码</label>
+                                                <div class="col-lg-9">
+                                                    <input name="newpassword2" type="password" class="form-control"
+                                                           id="inputPasswordNew2" placeholder="请再输入一次新密码" minlength="6"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-3 col-lg-9">
+                                                    <button type="button" class="btn btn-danger" onclick="cp()">提交
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        {{ ret_info }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {#            喜欢#}
+                    <div id="qllo" class="col-lg-6 hide">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        {% for i in obl %}
+                                            <ul style="padding: 10px;">
+                                                <li style="width: 600px">{{ i.title }}</li>
+                                                <li>答案：{{ i.answer }}</li>
+                                                <li>{{ i.content }}</li>
+                                                <span><a href="#" onclick="deld(this)" id="{{ i.id }}">取消点赞</a></span>
+                                            </ul>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {#            收藏#}
+                    <div id="qclo" class="col-lg-6 hide ">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        {% for i in obc %}
+                                            <ul style="padding: 10px;">
+                                                <li style="width: 600px">{{ i.title }}</li>
+                                                <li>答案：{{ i.answer }}</li>
+                                                <li>{{ i.content }}</li>
+                                                <span><a href="#" onclick="delc(this)" id="{{ i.id }}">取消收藏</a></span>
+                                            </ul>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function tijiao() {
+                $.ajax({
+                    url: "{% url 'count:users' %}",
+                    type: "post",
+                    data: $("#u_form").serialize(),
+                    success: function (msg) {
+                        $('#inputRealName').attr('value', msg.msg.username);
+                        $('#inputEmail').attr('value', msg.msg.email);
+                        $('#inputTel').attr('value', msg.msg.mobile);
+                        $('#inputQQ').attr('value', msg.msg.qq)
+                    },
+                    error: function (msg) {
+                        alert('出错了，请刷新重试~')
+                    }
+                })
+            }
+
+            function cp() {
+
+                $.ajax({
+                    url: "{% url 'count:users' %}",
+                    type: "post",
+                    data: $("#cp_form").serialize(),
+                    success: function (msg) {
+                        msg = msg.msg;
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '提交结果',
+                            // (string | mandatory) the text inside the notification
+                            //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                            text: msg,
+                        });
+                    }
+                })
+
+            }
+        </script>
+        <script>
+            function a1() {
+                $('#cpass').addClass('hide');
+                $('#qllo').addClass('hide');
+                $('#qclo').addClass('hide');
+                $('#info').removeClass('hide');
+                $('#l1').addClass('cli');
+                $('#l2').removeClass('cli');
+                $('#l3').removeClass('cli');
+                $('#l4').removeClass('cli');
+                $('#l1').children().addClass('aca');
+                $('#l2').children().removeClass('aca');
+                $('#l3').children().removeClass('aca');
+                $('#l4').children().removeClass('aca');
+            }
+
+            function a2() {
+                $('#info').addClass('hide');
+                $('#qllo').addClass('hide');
+                $('#qclo').addClass('hide');
+                $('#cpass').removeClass('hide');
+                $('#l2').addClass('cli');
+                $('#l1').removeClass('cli');
+                $('#l3').removeClass('cli');
+                $('#l4').removeClass('cli');
+                $('#l2').children().addClass('aca');
+                $('#l1').children().removeClass('aca');
+                $('#l3').children().removeClass('aca');
+                $('#l4').children().removeClass('aca');
+            }
+
+            function a3() {
+                $('#info').addClass('hide');
+                $('#qllo').removeClass('hide');
+                $('#qclo').addClass('hide');
+                $('#cpass').addClass('hide');
+                $('#l2').removeClass('cli');
+                $('#l1').removeClass('cli');
+                $('#l3').addClass('cli');
+                $('#l4').removeClass('cli');
+                $('#l2').children().removeClass('aca');
+                $('#l1').children().removeClass('aca');
+                $('#l3').children().addClass('aca');
+                $('#l4').children().removeClass('aca');
+            }
+
+            function a4() {
+                $('#info').addClass('hide');
+                $('#qllo').addClass('hide');
+                $('#qclo').removeClass('hide');
+                $('#cpass').addClass('hide');
+                $('#l2').removeClass('cli');
+                $('#l1').removeClass('cli');
+                $('#l3').removeClass('cli');
+                $('#l4').addClass('cli');
+                $('#l2').children().removeClass('aca');
+                $('#l1').children().removeClass('aca');
+                $('#l3').children().removeClass('aca');
+                $('#l4').children().addClass('aca');
+            }
+
+
+        </script>
+        <script>
+            function tijiao() {
+                $.ajax({
+                    url: "{% url 'count:users' %}",
+                    type: "post",
+                    data: $("#u_form").serialize(),
+                    success: function (msg) {
+                        $('#inputRealName').attr('value', msg.msg.username);
+                        $('#inputEmail').attr('value', msg.msg.email);
+                        $('#inputTel').attr('value', msg.msg.mobile);
+                        $('#inputQQ').attr('value', msg.msg.qq)
+                    },
+                    error: function (msg) {
+                        alert('出错了，请刷新重试~')
+                    }
+                })
+            }
+
+            function cp() {
+
+                $.ajax({
+                    url: "{% url 'count:users' %}",
+                    type: "post",
+                    data: $("#cp_form").serialize(),
+                    success: function (msg) {
+                        msg = msg.msg;
+
+                        $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '提交结果',
+                            // (string | mandatory) the text inside the notification
+                            //text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                            text: msg,
+                        });
+                    }
+                })
+
+            }
+
+            function delc(a) {
+                $(a).parent().parent().addClass('hide');
+                $.ajax({
+                    url: '{% url "questions:cancelc" %}',
+                    type: 'post',
+                    data: {'cid': $(a).attr('id'),},
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                    },
+                    success: function () {
+
+                    }
+
+                })
+            }
+
+            function deld(b) {
+                $(b).parent().parent().addClass('hide');
+                $.ajax({
+                    url: '{% url "questions:canceld" %}',
+                    type: 'post',
+                    data: {'did': $(b).attr('id')},
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                    },
+                })
+
+            }
+        </script>
+        <script>
+            $(document).pjax('a[data-pjax]', '#showser', {fragment: '#aim-pjax', timeout: 8000});
+
+
+            // pjax链接点击后显示加载动画；
+            $(document).on('pjax:send', function () {
+                NProgress.start();
+            });
+            // pjax链接加载完成后隐藏加载动画；
+            $(document).on('pjax:complete', function () {
+                NProgress.done();
+            });
+        </script>
+    </div>
+{% endblock %}
+{% block jss %}
+
+{% endblock %}
+

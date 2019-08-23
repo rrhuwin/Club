@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from apps.count.models import News
 from .models import Video
-from libs import page_splie
+import page_splie
 import json
 import re
-from libs import  search
+import search
 from django.views.generic import View, DetailView
 
 

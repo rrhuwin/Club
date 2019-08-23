@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block count %}
+    <div id="aim-pjax">
+        <div class="info-container">
+            <div class="info-container-title">
+                <h2>哪些保护环境的小视频~</h2>
+            </div>
+            <div class="info-container-list clearfix">
+                {% for i in vide %}
+                    {% if i.videoid == '12001995' %}
+                        {% for j in li %}
+                            <div class="info-listItem">
+                                <dl class="info-listItem-list">
+                                    <dt>
+                                        <a href="##" id="{{ i.videoid }}" onclick="taga(this,{{ j }})">
+                                            <img src="{{ i.imgurl }}" alt="">
+
+                                        </a>
+                                    </dt>
+                                    <a  href="##" id="{{ i.videoid }}" style="font-size: 15px;font-weight: 900;color: black;" onclick="taga(this,{{ j }})">{{ i.titles }}【{{ j }}】</a>
+                                </dl>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="info-listItem">
+                            <dl class="info-listItem-list" style="height: 250px">
+                                <dt>
+                                    <a href="##" id="{{ i.videoid }}" onclick="taga(this,1)">
+                                        <img src="{{ i.imgurl }}" alt="">
+
+                                    </a>
+                                </dt>
+                                <a href="##" id="{{ i.videoid }}" style="font-size: 15px;font-weight: 900;color: black;" onclick="taga(this,1)" >{{ i.titles }} </a>
+                            </dl>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="1" class="moodel1 hide"></div>
+        <div id="2" class="moodel2 hide" style="width: 64%;margin-top: -20px;">
+             <button type="button" onclick="del()">取消</button>
+            <div id="vd"></div>
+            <audio id="players" autoplay="autoplay"></audio>
+            <button type="button" onclick="del()">取消</button>
+            <script>
+
+
+                function taga(aa, a) {
+                    var sid = $(aa).attr('id');
+
+                    $("#1").removeClass('hide');
+                    $('#2').removeClass('hide');
+                    parseVideo(a, sid);
+                }
+
+
+                function del() {
+                    $("#1").addClass('hide');
+                    $('#2').addClass('hide');
+                    $('#movie').remove(); //暂停控制
+                }
+
+                function callbackfunction(j) {
+                    var u = j.durl[0].url;
+                    $("#vd").html('<video id="movie" style="width: 100%;height:100%" width="680" height="376" src="' + u + '" preload="auto" autoplay="" controls="" class="embed-responsive-item"></video>')
+                    $("#page1").attr("href", j.durl[0].url);
+                }
+
+                function parseVideo(page, sid) {
+                    $.getScript("http://api.bilibili.com/playurl?callback=callbackfunction&aid=" + sid + "&page=" + page + "&platform=html5&quality=16&vtype=mp4&type=jsonp");
+                }
+
+
+                var u = j.durl[0].url;
+                $("#vd").html('<video width="724" height="400" src="' + u + '" preload="auto" autoplay="" controls="" class="embed-responsive-item"></video>')
+
+            </script>
+
+        </div>
+    </div>
+{% endblock %}

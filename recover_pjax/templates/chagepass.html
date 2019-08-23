@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block count %}
+    <script src="/static/js/jquery.js"></script>
+    <!-- header area end -->
+    <!-- breadcroumb area start -->
+    <div class="mayabi-breadcroumb blue-bg text-center sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>login</h2>
+                    <h4><a href="/index/" data-pjax="true">主页 </a>/ 登录</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#   注册登录 表单#}
+    <div class="register-login-area sec-p-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mayabi-register-area">
+                                <div class="cart-title mb-20">
+                                    <h2>找回密码</h2>
+                                </div>
+                                {#                               注册#}
+                                <form method="post" class="registration-form" id="sendemail" novalidate>
+                                    {% csrf_token %}
+                                    <div class="single-field mb-30">
+                                        <input class="form-control" type="text" name="email"
+                                               placeholder="请输入邮箱*">
+                                        <span><i class="fa fa-user" style="width: 150px;height:27px;"></i></span>
+                                    </div>
+
+                                    <button class="btn btn-type-3" id="register_btn" style="margin-left: 45%" type="button" onclick="send()">
+                                        发送
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- cart area end -->
+    <!-- footer area start -->
+        <script>
+    function send() {
+        $.ajax({
+            url:'{% url "count:change" %}',
+            type:'post',
+            data:$('#sendemail').serialize(),
+            success:function (msg) {
+                console.log(msg);
+                if(msg.code==200){
+                    alert(msg.msg)
+                }else {
+                    alert(msg.msg)
+                }
+            },
+            error:function () {
+                alert('失败')
+            }
+        })
+    }
+    </script>
+
+{% endblock %}
+

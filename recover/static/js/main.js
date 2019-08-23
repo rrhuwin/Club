@@ -198,42 +198,7 @@
         		NiceSelect Active
         	------------------------------*/
         $('select').niceSelect();
-        /*----------------------------
-        		Price Filter Active
-        	------------------------------*/
-        // $("#price-range").slider({
-        //     range: true,
-        //     min: 0,
-        //     max: 500,
-        //     values: [120, 388],
-        //     slide: function(event, ui) {
-        //         $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-        //     }
-        // });
-        // $("#amount").val("$" + $("#price-range").slider("values", 0) +
-        //     " - $" + $("#price-range").slider("values", 1));
-        // /*----------------------------
-        // 		single product slider active
-        // 	------------------------------*/
-        // $('.product-big-img').slick({
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     arrows: false,
-        //     fade: true,
-        //     asNavFor: '.product-big-img-thumb'
-        // });
-        // $('.product-big-img-thumb').slick({
-        //     slidesToShow: 3,
-        //     slidesToScroll: 1,
-        //     asNavFor: '.product-big-img',
-        //     dots: false,
-        //     centerMode: true,
-        //     focusOnSelect: true
-        // });
 
-        /*----------------------------
-        		WOW active
-        	------------------------------*/
         new WOW().init();
 
     });

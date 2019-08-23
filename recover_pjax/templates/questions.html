@@ -1,0 +1,906 @@
+{% extends 'base.html' %}
+
+{% block count %}
+    <div id="aim-pjax">
+        <div>
+
+
+            <div class=" wrapperss bbbbb" style="margin-top: 50px;height: 50px;border-left: solid #f1f8ff;">
+                <ul>
+                    {% if cate == 'a' %}
+                        <li class="checkout {{ bor }}">
+                            <a href="{% url 'questions:detailh' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">题库</a></li>
+                    {% else %}
+                        <li class="checkout ">
+                            <a href="{% url 'questions:detaila' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">题库</a></li>
+                    {% endif %}
+                    {% if cate == 'h' %}
+                        <li class="checkout {{ bor }}">
+                            <a href="{% url 'questions:detailh' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">垃圾分类专题</a>
+                        </li>
+                    {% else %}
+                        <li class="checkout ">
+                            <a href="{% url 'questions:detailh' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">垃圾分类专题</a>
+                        </li>
+                    {% endif %}
+                    {% if cate == 's' %}
+                        <li class="checkout {{ bor }}">
+                            <a href="{% url 'questions:details' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">水资源专题</a>
+                        </li>
+                    {% else %}
+                        <li class="checkout ">
+                            <a href="{% url 'questions:details' %}" style="color: black" onclick="chage(this)"
+                               data-pjax="true">水资源专题</a>
+                        </li>
+                    {% endif %}
+
+
+                </ul>
+            </div>
+            <div class="rows wrapperss" style="">
+                <div class=" col-md-10 test">
+
+                    <div class="test_content">
+                        <div class="test_content_title">
+                            <h2 style="color: #2273c0;">【单选题】</h2>
+                        </div>
+                        <div class="test_content_title" style="margin-top: -50px">
+                            <h2 style="color: #2273c0;float: right;padding: 10px 15px;">6</h2>
+                            <h2 style="color: #2273c0;float: right;padding: 10px 15px;">/</h2>
+                            <h2 id="count" style="color: #2273c0;float: right;padding: 10px 15px;">1</h2>
+                        </div>
+                    </div>
+                    {#                          第一题#}
+                    <form action="" method="post" id="{{ obj1.id }}" class="abbb">
+                        {% csrf_token %}
+                        <div class="test_content_nr">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj1.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_1"/>
+                                                <label for="0_answer_1_option_1">
+                                                    A.<p id={{ obj1.id }} class="ue"
+                                                         style="display: inline;">{{ obj1.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_2"/>
+                                                <label for="0_answer_1_option_2">
+                                                    B.
+                                                    <p id={{ obj1.id }} class="ue"
+                                                       style="display: inline;">{{ obj1.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_3"/>
+                                                <label for="0_answer_1_option_3">
+                                                    C.
+                                                    <p id={{ obj1.id }} class="ue"
+                                                       style="display: inline;">{{ obj1.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_4"/>
+                                                <label for="0_answer_1_option_4">
+                                                    D.
+                                                    <p id={{ obj1.id }} class="ue"
+                                                       style="display: inline;">{{ obj1.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    {#                          第2题#}
+                    <form action="" method="post" id="{{ obj2.id }}" class="abbb hide">
+                        {% csrf_token %}
+                        <div class="test_content_nr">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj2.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_21"/>
+                                                <label for="0_answer_1_option_21">
+                                                    A.<p id="{{ obj2.id }}" class="ue"
+                                                         style="display: inline;">{{ obj2.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_22"/>
+                                                <label for="0_answer_1_option_22">
+                                                    B.
+                                                    <p id="{{ obj2.id }}" class="ue"
+                                                       style="display: inline;">{{ obj2.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_23"/>
+                                                <label for="0_answer_1_option_23">
+                                                    C.
+                                                    <p id="{{ obj2.id }}" class="ue"
+                                                       style="display: inline;">{{ obj2.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_24"/>
+                                                <label for="0_answer_1_option_24">
+                                                    D.
+                                                    <p id="{{ obj2.id }}" class="ue"
+                                                       style="display: inline;">{{ obj2.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    {#                          第3题#}
+                    <form action="" method="post" id="{{ obj3.id }}" class="abbb hide">
+                        {% csrf_token %}
+                        <div class="test_content_nr">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj3.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_31"/>
+                                                <label for="0_answer_1_option_31">
+                                                    A.<p id="{{ obj3.id }}" class="ue"
+                                                         style="display: inline;">{{ obj3.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_32"/>
+                                                <label for="0_answer_1_option_32">
+                                                    B.
+                                                    <p id="{{ obj3.id }}" class="ue"
+                                                       style="display: inline;">{{ obj3.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_33"/>
+                                                <label for="0_answer_1_option_33">
+                                                    C.
+                                                    <p id="{{ obj3.id }}" class="ue"
+                                                       style="display: inline;">{{ obj3.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_34"/>
+                                                <label for="0_answer_1_option_34">
+                                                    D.
+                                                    <p id="{{ obj3.id }}" class="ue"
+                                                       style="display: inline;">{{ obj3.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    {#                          第4题#}
+                    <form action="" method="post" id="{{ obj4.id }}" class="abbb hide">
+                        {% csrf_token %}
+                        <div class="test_content_nr ">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj4.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_41"/>
+                                                <label for="0_answer_1_option_41">
+                                                    A.<p id="{{ obj4.id }}" class="ue"
+                                                         style="display: inline;">{{ obj4.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_42"/>
+                                                <label for="0_answer_1_option_42">
+                                                    B.
+                                                    <p id="{{ obj4.id }}" class="ue"
+                                                       style="display: inline;">{{ obj4.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_43"/>
+                                                <label for="0_answer_1_option_43">
+                                                    C.
+                                                    <p id="{{ obj4.id }}" class="ue"
+                                                       style="display: inline;">{{ obj4.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_44"/>
+                                                <label for="0_answer_1_option_44">
+                                                    D.
+                                                    <p id="{{ obj4.id }}" class="ue"
+                                                       style="display: inline;">{{ obj4.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    {#                          第5题#}
+                    <form action="" method="post" id="{{ obj5.id }}" class="abbb hide">
+                        {% csrf_token %}
+                        <div class="test_content_nr ">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj5.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_51"/>
+                                                <label for="0_answer_1_option_51">
+                                                    A.<p id="{{ obj5.id }}" class="ue"
+                                                         style="display: inline;">{{ obj5.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_52"/>
+                                                <label for="0_answer_1_option_52">
+                                                    B.
+                                                    <p id="{{ obj5.id }}" class="ue"
+                                                       style="display: inline;">{{ obj5.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_53"/>
+                                                <label for="0_answer_1_option_53">
+                                                    C.
+                                                    <p id="{{ obj5.id }}" class="ue"
+                                                       style="display: inline;">{{ obj5.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_54"/>
+                                                <label for="0_answer_1_option_54">
+                                                    D.
+                                                    <p id="{{ obj5.id }}" class="ue"
+                                                       style="display: inline;">{{ obj5.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    {#                          第6题#}
+                    <form action="" method="post" id="{{ obj6.id }}" class="abbb hide">
+                        {% csrf_token %}
+                        <div class="test_content_nr ">
+                            <ul>
+                                <li id="qu_0_0">
+                                    <div class="test_content_nr_tt">
+                                        <i>1.</i><font>{{ obj6.title }}</font>
+                                    </div>
+
+                                    <div class="test_content_nr_main">
+                                        {#                                <img src="/static/img/index/shuiping.png" alt="" class="a">#}
+                                        <ul>
+                                            <li class="option">
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_61"/>
+                                                <label for="0_answer_1_option_61">
+                                                    A.<p id="{{ obj6.id }}" class="ue"
+                                                         style="display: inline;">{{ obj6.choose_A }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_62"/>
+                                                <label for="0_answer_1_option_62">
+                                                    B.
+                                                    <p id="{{ obj6.id }}" class="ue"
+                                                       style="display: inline;">{{ obj6.choose_B }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_63"/>
+                                                <label for="0_answer_1_option_63">
+                                                    C.
+                                                    <p id="{{ obj6.id }}" class="ue"
+                                                       style="display: inline;">{{ obj6.choose_C }}</p>
+                                                </label>
+                                            </li>
+                                            <li class="option">
+
+                                                <input type="radio" class="radioOrCheck" name="answer1"
+                                                       id="0_answer_1_option_64"/>
+                                                <label for="0_answer_1_option_64">
+                                                    D.
+                                                    <p id="{{ obj6.id }}" class="ue"
+                                                       style="display: inline;">{{ obj6.choose_D }}</p>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="col-md-1" style="border-right: 1px #e4e4e4 solid">
+                    <div class="zzsc-container" style="padding-top:100%;">
+                        <section class="content">
+                            <ol class="grid">
+                                {% if status11 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj1.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj1.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status1 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj1.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj1.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                        <section class="content hide">
+                            <ol class="grid">
+                                {% if status12 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj2.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj2.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status2 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj2.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj2.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                        <section class="content hide">
+                            <ol class="grid">
+                                {% if status13 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj3.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj3.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status3 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj3.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj3.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                        <section class="content hide">
+                            <ol class="grid">
+                                {% if status14 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj4.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj4.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status4 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj4.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj4.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                        <section class="content hide">
+                            <ol class="grid">
+                                {% if status15 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj5.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj5.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status5 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj5.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj5.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                        <section class="content hide">
+                            <ol class="grid">
+                                {% if status16 == 'True' %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj6.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item" style="padding-top: 50px;padding-bottom: 80px;">
+                                        <button class="icobutton icobutton--thumbs-up" type="button" id="dz"
+                                                onclick="dzs(this)">
+                                            <span class="fa fa-thumbs-up"></span><span
+                                                class="icobutton__text icobutton__text--side">点赞</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj6.id }}</p>
+                                    </li>
+                                {% endif %}
+
+                                {% if status6 == 'True' %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)" style="color: rgb(152, 138, 222)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj6.id }}</p>
+                                    </li>
+                                {% else %}
+                                    <li class="grid__item">
+                                        <button class="icobutton icobutton--heart" type="button" id="sc"
+                                                onclick="scs(this)">
+                                            <span class="fa fa-heart"></span>
+                                            <span class="icobutton__text icobutton__text--side">收藏</span>
+                                        </button>
+                                        <p class="hide" id="asd">{{ obj6.id }}</p>
+                                    </li>
+                                {% endif %}
+                            </ol>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-md-1" style="border-right: 1px #e4e4e4 solid">
+                    <ul>
+                        <li>
+                            {% if cate == 'a' %}
+                                <button class="btn btn-info" style="margin-top: 190%;width: 100%;" type="button"
+                                        id="{{ cate }}"><a href="{% url 'questions:detaila' %}" style="color: #000000"
+                                                           data-pjax="true" id="another">换一批</a>
+                                </button>
+                            {% elif cate == 's' %}
+                                <button class="btn btn-info" style="margin-top: 190%;width: 100%;" type="button"
+                                        id="{{ cate }}"><a href="{% url 'questions:details' %}" style="color: #000000"
+                                                           data-pjax="true" id="another">换一批</a>
+                                </button>
+                            {% elif cate == 'h' %}
+                                <button class="btn btn-info" style="margin-top: 190%;width: 100%;" type="button"
+                                        id="{{ cate }}"><a href="{% url 'questions:detailh' %}" style="color: #000000"
+                                                           data-pjax="true" id="another">换一批</a>
+                                </button>
+                            {% endif %}
+                        </li>
+                        <li>
+                            <button class="btn btn-success" style="margin-top: 80px;width: 100%" type="button"
+                                    id="buttpm"
+                                    onclick="qiehuan()">下一题
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rows wrapperss ccc1 hide">
+                <div style="padding-bottom: 20px;padding-top: 20px;">
+                    <p id="your_answer" style="padding: 0px 20px 5px 20px;font-weight: 800;font-size: 15px">
+                    </p>
+                    <p id="yess" style="padding: 10px 20px 0px 20px ;font-weight: 800;font-size: 15px">
+                    </p>
+                </div>
+            </div>
+            <div class="rows wrapperss ccc  hide">
+                <div style="padding-bottom: 20px;padding-top: 20px;">
+                    <p style="padding: 0px 20px 5px 20px;font-weight: 800;font-size: 15px">
+                        恭喜你答对了，继续挑战下一题吧！
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <script id="aim-script">
+            var a = 2;
+            function qiehuan() {
+                var s = $('form:not(".hide"):not(".meiyongde")');
+                var p = $('section:not(".hide")');
+                $('.ccc1').addClass('hide');
+                $('.ccc').addClass('hide');
+                if (a <= 6) {
+                    $('#count').text(a);
+                    $('.test_content_nr_tt').children('i').text(a);
+                    a++;
+                }
+
+                if (s.next().length) {
+                    s.next().removeClass('hide');
+                    s.addClass('hide');
+                } else {
+
+                }
+                if (p.next().length) {
+                    p.next().removeClass('hide');
+                    p.addClass('hide');
+                } else {
+
+                }
+            }
+            $('input[type=radio][name=answer1]').click(function () {
+                $.ajax({
+                    url: '{% url "questions:check" %}',
+                    type: 'post',
+                    data: {'answer': $(this).next().children().text(), 'ids': $(this).next().children().attr('id')},
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                    },
+                    success: function (msg) {
+                        if (msg.msg == 'yes') {
+                            $('.ccc').removeClass('hide');
+                            $('.ccc1').addClass('hide');
+                        } else {
+                            $('.ccc1').removeClass('hide');
+                            $('.ccc').addClass('hide');
+                            $('#your_answer').html('你的答案是：' + msg.you);
+                            $('#yess').html('正确答案是：' + msg.answer)
+                        }
+                    },
+                    error: function (msg) {
+                        alert('不好意思，由于技术原因，出错了。请刷新重试！')
+                    }
+                });
+            });
+            function dzs(asd) {
+            var a = 1;
+            var ids = $(asd).next().text();
+            {% if request.user.is_authenticated %}
+
+                $.ajax({
+                    url: '/questions/dz/' + ids + '/',
+                    type: 'get',
+                    success: function (mm) {
+                        console.log(mm.msg.status);
+                        if (mm.msg.status == true) {
+                            $(asd).attr("style", 'color: rgb(152, 138, 222)')
+                        } else if (mm.msg.status == false) {
+                            $(asd).attr("style", 'color: rgb(192, 193, 195)')
+                        }
+                    },
+                    error: function () {
+                        alert('出错了')
+                    }
+                });
+            {% else %}
+                alert('请登录后再操作');
+            {% endif %}
+        }
+            function scs(abc) {
+            var idss = $(abc).next().text();
+            {% if request.user.is_authenticated %}
+                $.ajax({
+                    url: '/questions/sc/' + idss + '/',
+                    type: 'get',
+                    success: function (mm) {
+                        console.log(mm.msg.status);
+                        if (mm.msg.status == true) {
+                            $(abc).attr("style", 'color: rgb(152, 138, 222)')
+                        } else if (mm.msg.status == false) {
+                            $(abc).attr("style", 'color: rgb(192, 193, 195)')
+                        }
+                    },
+                    error: function () {
+                        alert('出错了')
+                    }
+                });
+            {% else %}
+                alert('请登录后再操作');
+            {% endif %}
+        }
+        </script>
+    </div>
+{% endblock %}
+{% block js %}
+    <script id="aim-script">
+        var a = 2;
+        function qiehuan() {
+            var s = $('form:not(".hide"):not(".meiyongde")');
+            var p = $('section:not(".hide")');
+            $('.ccc1').addClass('hide');
+            $('.ccc').addClass('hide');
+            if (a <= 6) {
+                $('#count').text(a);
+                $('.test_content_nr_tt').children('i').text(a);
+                a++;
+            }
+            if (s.next().length) {
+                s.next().removeClass('hide');
+                s.addClass('hide');
+            } else {
+            }
+            if (p.next().length) {
+                p.next().removeClass('hide');
+                p.addClass('hide');
+            } else {
+            }
+        }
+        $('input[type=radio][name=answer1]').click(function () {
+            $.ajax({
+                url: '{% url "questions:check" %}',
+                type: 'post',
+                data: {'answer': $(this).next().children().text(), 'ids': $(this).next().children().attr('id')},
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                },
+                success: function (msg) {
+                    if (msg.msg == 'yes') {
+                        $('.ccc').removeClass('hide');
+                        $('.ccc1').addClass('hide');
+                    } else {
+                        $('.ccc1').removeClass('hide');
+                        $('.ccc').addClass('hide');
+                        $('#your_answer').html('你的答案是：' + msg.you);
+                        $('#yess').html('正确答案是：' + msg.answer)
+                    }
+                },
+                error: function (msg) {
+                    alert('不好意思，由于技术原因，出错了。请刷新重试！')
+                }
+            });
+        });
+        function dzs(asd) {
+            var a = 1;
+            var ids = $(asd).next().text();
+            {% if request.user.is_authenticated %}
+
+                $.ajax({
+                    url: '/questions/dz/' + ids + '/',
+                    type: 'get',
+                    success: function (mm) {
+                        console.log(mm.msg.status);
+                        if (mm.msg.status == true) {
+                            $(asd).attr("style", 'color: rgb(152, 138, 222)')
+                        } else if (mm.msg.status == false) {
+                            $(asd).attr("style", 'color: rgb(192, 193, 195)')
+                        }
+                    },
+                    error: function () {
+                        alert('出错了')
+                    }
+                });
+            {% else %}
+                alert('请登录后再操作');
+            {% endif %}
+        }
+        function scs(abc) {
+            var idss = $(abc).next().text();
+            {% if request.user.is_authenticated %}
+                $.ajax({
+                    url: '/questions/sc/' + idss + '/',
+                    type: 'get',
+                    success: function (mm) {
+                        console.log(mm.msg.status);
+                        if (mm.msg.status == true) {
+                            $(abc).attr("style", 'color: rgb(152, 138, 222)')
+                        } else if (mm.msg.status == false) {
+                            $(abc).attr("style", 'color: rgb(192, 193, 195)')
+                        }
+                    },
+                    error: function () {
+                        alert('出错了')
+                    }
+                });
+            {% else %}
+                alert('请登录后再操作');
+            {% endif %}
+        }
+    </script>
+{% endblock %}

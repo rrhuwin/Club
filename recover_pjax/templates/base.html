@@ -1,0 +1,990 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mayabi - Multipurpose Portfolio/Business HTML5 Template</title>
+    <meta name="keywords" content="Corporate Business Shopse HTML5 Css3 Template"/>
+    <meta name="description" content="mayabi | Minimal Multipurpose HTML5 Template"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css here -->
+
+    <link rel="stylesheet" href="/static/css/pjaxcssall.css">
+    <link type="text/css" rel="stylesheet" href="/static/js/music/player.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/slicknav.min.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <link rel="stylesheet" href="/static/css/nice-select.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/linebar.min.css">
+    <link rel="stylesheet" href="/static/css/scrolltop.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/css/default.css">
+    <link rel="stylesheet" href="/static/css/slick-theme.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {#垃圾展示#}
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/js/gritter/css/jquery.gritter.css">
+    <link rel="stylesheet" href="/static/css/videoLunbo.css">
+    <link href="/static/css/test.css" rel="stylesheet" type="text/css"/>
+    {% block css %}
+    {% endblock %}
+    <style>
+        .wrapper {
+            width: 1180px;
+            margin: auto;
+            margin-top: 50px;
+            background: #fff;
+            /* padding-bottom: 30px; */
+        }
+
+        .meiyongde {
+
+        }
+
+        .bbb:before {
+            background: rgba(128, 128, 128, 0.3);
+        }
+
+        .blog-img-ctg {
+            width: 100%;
+        }
+
+        .blog-img-ctg img {
+            margin-left: 15px;
+        }
+
+        .imgsz {
+            width: 100%;
+            height: 100%;
+            margin-top: 40px;
+        }
+
+        .bbb:before {
+            background: rgba(37, 37, 37, 0.3);
+        }
+
+        .sec-p-100 {
+            padding: 20px 0;
+            margin: 65px 0px 25px 0px;
+        }
+
+        .fu {
+            float: left;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .kong {
+
+        }
+
+        .loading {
+            background-image: url(/static/img/loading.gif);
+            background-size: 50% 50%;
+            background-repeat: no-repeat;
+            background-position: 40% 50%;
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            left: 5%;
+            top: 90%;
+        }
+    </style>
+    <style id="showss"></style>
+</head>
+
+<body>
+<div id="hero-area" class="hero-area">
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <!-- logo start -->
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a href="{% url 'index' %}" data-pjax="true"><img src="/static/img/logo.png" alt="logo"
+                                                                          class="img-fluid"/></a>
+                    </div>
+                </div>
+
+                <div class="responsive-menu-wrap"></div>
+                <!-- nav start -->
+                <div class="col-md-9">
+                    <div class="mainmenu">
+                        <ul id="navigation">
+                            <li class="current-item"><a href="{% url 'index' %}" data-pjax="true">主页</a></li>
+                            <li><a href="{% url 'countent:show' %}" data-pjax="true">关注<i class="fa fa-angle-down"></i></a>
+                                <ul>
+                                    <li><a href="{% url 'countent:show' %}" data-pjax="true"><i
+                                            class="fa fa-angle-double-right"></i>
+                                        哪些你不知道的~</a></li>
+                                    <li><a href="{% url 'countent:ancient' %}" data-pjax="true"><i
+                                            class="fa fa-angle-double-right"></i>古人保护环境的那些事儿
+                                    </a></li>
+                                    <li><a href="{% url 'countent:bsi' %}" data-pjax='true'><i
+                                            class="fa fa-angle-double-right"></i> 环保小妙招~ </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'countent:news' tp='a' page=1 %} " data-pjax="true">环保热点<i
+                                    class="fa fa-angle-down"></i></a>
+                                <ul>
+                                    <li><a href="{% url 'countent:news' tp='h' page=1 %}" data-pjax="true"><i
+                                            class="fa fa-angle-double-right"></i> 垃圾分类 </a></li>
+                                    <li><a href="{% url 'countent:news' tp='s' page=1 %}" data-pjax="true"><i
+                                            class="fa fa-angle-double-right"></i> 水资源？ </a></li>
+                                    <li><a href="{% url 'countent:news' tp='q' page=1 %}" data-pjax="true"><i
+                                            class="fa fa-angle-double-right"></i> 清洁能源 </a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="{% url 'questions:detaila' %}" data-pjax="true">挑战一下？</a>
+                                <ul>
+
+                                </ul>
+                            </li>
+                            {% if request.user.is_authenticated %}
+                                <li id="logins"><a href="#" id="a1">{{ user }}<i class="fa fa-angle-down"></i></a>
+                                    <ul>
+                                        <li><a href="{% url 'count:users' %}" data-pjax="true"><i
+                                                class="fa fa-angle-right"></i> 个人资料
+                                        </a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i> 修改密码 </a></li>
+                                        <li><a href="{% url 'count:loginout' %}"><i
+                                                class="fa fa-angle-right"></i> 退出登录
+                                        </a></li>
+                                    </ul>
+                                </li>
+
+                            {% else %}
+                                <li id="logins"><a href="/count/login" id="a1" data-pjax=true>登录/注册</a></li>
+
+                            {% endif %}
+                        </ul>
+                    </div>
+
+
+                </div>
+                <!-- nav end -->
+            </div>
+        </div>
+    </div>
+
+    <div id="showser">
+        {% block count %}
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <div class="footer-area sec-p-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copy-right text-center">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="/static/img/logo.png" alt="logo" class="img-fluid"/></a>
+                            </div>
+                            Born in 2019 <a href="{% url 'index' %}" data-pjax="true">HbClub</a> | all rights reserved |
+                            created
+                            by
+                            Mr.Hu
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="QPlayer">
+        <div id="pContent">
+
+            <div id="player">
+
+                <span class="cover"></span>
+                <div class="ctrl">
+                    <div class="contr1">
+                        <span id="voice">
+                        <i class="fa fa-volume-off hide"></i><i class="fa fa-volume-down hide"></i><i
+                                class="fa fa-volume-up"></i></span>
+                        <span id="voicebar"><input id="voicerange" min="0" max="1" step="0.1" type="range"
+                                                   onchange="setvolume()"></span>
+                    </div>
+                    <div class="musicTag marquee" style="margin-top:10px">
+                        <strong>歌名</strong>
+                        <span> - </span>
+                        <span class="artist">歌手</span>
+                    </div>
+                    <div class="progress1">
+                        <div class="timer left">0:00</div>
+                        <div class="contr">
+                            <div class="rewind icon"></div>
+                            <div class="playback icon"></div>
+                            <div class="fastforward icon" style="display: block"></div>
+                        </div>
+
+                        <div class="right">
+                            <div class="liebiao icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ssBtn">
+                <div class="adf"></div>
+            </div>
+
+        </div>
+        <ol id="playlist"></ol>
+        <div style="text-align:center " class="hide" id="inn">
+            <input type="text" id="neirong" style="width: 100px;" placeholder="搜搜~">
+            <input class="btn " type="button" style="padding: 5px" value="搜索" id="vtn" onclick="fs(this)">
+            <input class="btn" type="button" value="换一批" style="padding: 5px" onclick="nextpage()">
+        </div>
+
+        {#    <div style="text-align:center " class="hide" id="inn">#}
+        {#        <form action="/a/" method="post">#}
+        {#            {% csrf_token %}#}
+        {#            <input type="text" id="neirong">#}
+        {#            <input type="submit" value="搜索" id="vtn" >#}
+        {#        </form>#}
+        {##}
+        {#    </div>#}
+    </div>
+    <div class="loading hide" id="load"></div>
+</div>
+
+
+{% if request.user.is_authenticated %}
+    <script>
+        $('.mayabi-single-slider').addClass('bbb');
+        $('h1.kong').text('欢迎加入环保大家庭');
+        $('a.kong').text('欢迎加入环保大家庭');
+        $('a.kong').attr('href', '#we');
+    </script>
+{% else %}
+    <script>
+        $('.mayabi-single-slider').removeClass('bbb')
+    </script>
+{% endif %}
+<script>
+    window.onload = function () {
+        $("a").removeAttr("target");
+    };
+
+    function searchs() {
+
+        $.ajax({
+            url: '{%  url "apis:search" %}',
+            type: 'get',
+            data: {'kw': $('#sear').val()},
+            success: function (msg) {
+                $('#title5').removeClass('hide');
+                $('#answer').children().remove();
+                var lan = msg.ak;
+                if (lan == 1) {
+                    $('#title5').html('好像找不到哦，换一个姿势试一试~');
+                } else {
+                    $('#title5').html('为您搜到以下结果：');
+
+                    var num = (Object.keys(msg.detail).length);
+                    for (var i = num - 1; i >= 0; i--) {
+                        var page = $('<p>');
+                        var span = $('<span>');
+                        var br = $('<Br/>');
+                        page.html(Object.keys(msg.detail)[i]);
+                        page.attr('class', 'fu');
+                        span.html(":" + Object.values(msg.detail)[i]);
+                        span.attr('class', 'fu');
+                        $('#answer').append(page);
+                        $('#answer').append(span);
+                        $('#answer').append(br);
+                    }
+                }
+            }
+        })
+    }
+</script>
+<script type="text/javascript" src="/static/js/music/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/music/jquery.marquee.min.js"></script>
+<script>
+    function setvolume() {
+        var voice = $("#voicerange")[0].valueAsNumber;
+        $("audio")[0].volume = voice;
+        if (voice == 0) {
+            $(".fa-volume-down,.fa-volume-up").hide();//隐藏声音中等和最大图标
+            $(".fa-volume-off").show();//显示声音关闭图标
+            $($("#voiceInBar")[0]).css("width", "0%");
+        } else if (voice > 0.5) {
+            $(".fa-volume-down,.fa-volume-off").hide();//隐藏声音中等和关闭
+            $(".fa-volume-up").show();//显示声音最大
+            $($("#voiceInBar")[0]).css("width", "100%");
+        } else {
+            $(".fa-volume-up,.fa-volume-off").hide();//隐藏声音中等和关闭
+            $(".fa-volume-down").show();//显示声音最大
+        }
+    }
+
+</script>
+<script>
+    var n = 30;
+    var playlist = playlist = [{
+        'artist_id': '12707',
+        'artist': '苏打绿',
+        'mp3': 'http://music.163.com/song/media/outer/url?id=26524510.mp3',
+        'title': '我好想你',
+        'cover': 'http://p4.music.126.net/YXY1vPG5rtdV7w_cWDnNWw==/884007348732141.jpg?param=106x106',
+    }];
+    var isRotate = true;
+    var autoplay = false;
+    var asd = $('#c');
+
+    function fs(aaa) {
+        $('#load').removeClass('hide');
+        var v = $('#neirong').val();
+        $('.lib').remove();
+        $.ajax({
+            url: "{% url 'countent:music' %}",
+            type: "post",
+            data: {"name": v, 'num': n},
+            success: function (ids) {
+                ids = JSON.parse(ids);
+                if (ids.artist_id == 123) {
+                    $('#load').addClass('hide');
+                    $('#neirong').attr('placeholder', '出错了请重试!');
+                } else {
+                    $('#load').addClass('hide');
+                    $('#neirong').attr('placeholder', v);
+                    playlist = ids;
+                    (function ($) {
+                        // Settings
+                        var isShowNotification = false,
+                            isInitMarquee = true,
+                            shuffleArray = [],
+                            shuffleIndex,
+                            autoClearTimer,
+                            autoShowTimer,
+                            isFirstPlay = localStorage.qplayer == undefined ? true : false,
+                            isShuffle = localStorage.qplayer == undefined ? false : localStorage.qplayer === 'true' ? true : false;
+
+                        // Load playlist
+                        for (var i = 0; i < playlist.length; i++) {
+                            var item = playlist[i];
+                            $('#playlist').append('<li class="lib" style="overflow:hidden;"><strong style="margin-left: 5px;">' + item.title + '</strong><span style="float: right;" class="artist">' + item.artist + '</span></li>');
+                            if (item.mp3 == "") {
+                                $('#playlist li').eq(i).css('color', '#ddd');
+                            }
+                        }
+
+                        var currentTrack = 0, audio, timeout;
+                        var shuffle_array = localStorage.qplayer_shuffle_array;
+
+                        if (isShuffle && shuffle_array != undefined && playlist.length === (shuffleArray = JSON.parse(shuffle_array)).length) {
+                            currentTrack = shuffleArray[0];
+                            shuffleIndex = 0;
+                            $('#QPlayer .cover').attr('title', '点击关闭随机播放');
+                        } else {
+                            isShuffle = false;
+                            $('#QPlayer .cover').attr('title', '点击开启随机播放');
+                        }
+
+                        //判断是否显示滚动条
+                        var totalHeight = 0;
+                        for (var i = 0; i < playlist.length; i++) {
+                            totalHeight += ($('#playlist li').eq(i).height() + 6);
+                        }
+                        if (totalHeight > 360) {
+                            $('#playlist').css("overflow", "auto");
+                            if (isShuffle) {
+                                var temp = 0;
+                                for (var j = 0; j < currentTrack; j++) {
+                                    temp += ($('#playlist li').eq(j).height() + 6);
+                                }
+                                $('#playlist').scrollTop(temp);
+                            }
+                        }
+
+                        var play = function () {
+                            audio.play();
+                            if (isRotate) {
+                                $("#player .cover img").css("animation", "9.8s linear 0s normal none infinite rotate");
+                                $("#player .cover img").css("animation-play-state", "running");
+                            }
+                            $('.playback').addClass('playing');
+                            timeout = setInterval(updateProgress, 500);
+                            //超过显示栏运行跑马灯
+                            if (isExceedTag()) {
+                                if (isInitMarquee) {
+                                    initMarquee();
+                                    isInitMarquee = false;
+                                } else {
+                                    $('.marquee').marquee('resume');
+                                }
+                            }
+                        }
+
+                        var pause = function () {
+                            audio.pause();
+                            $("#player .cover img").css("animation-play-state", "paused");
+                            $('.playback').removeClass('playing');
+                            clearInterval(timeout);
+                            if (isExceedTag()) {
+                                $('.marquee').marquee('pause');
+                            }
+                        }
+
+                        // Update progress
+                        var setProgress = function (value) {
+                            var currentSec = parseInt(value % 60) < 10 ? '0' + parseInt(value % 60) : parseInt(value % 60),
+                                ratio = value / audio.duration * 100;
+
+                            $('.timer').html(parseInt(value / 60) + ':' + currentSec);
+                        }
+
+                        var updateProgress = function () {
+                            setProgress(audio.currentTime);
+                        }
+
+                        // Switch track
+                        var switchTrack = function (i) {
+                            if (i < 0) {
+                                track = currentTrack = playlist.length - 1;
+                            } else if (i >= playlist.length) {
+                                track = currentTrack = 0;
+                            } else {
+                                track = i;
+                            }
+
+                            isInitMarquee = true;
+                            $('audio').remove();
+                            loadMusic(track);
+                            play();
+                        }
+
+                        // Shuffle
+                        var shufflePlay = function (i) {
+                            if (i === 1) {
+                                //下一首
+                                if (++shuffleIndex === shuffleArray.length) {
+                                    shuffleIndex = 0;
+                                }
+                                currentTrack = shuffleArray[shuffleIndex];
+
+                            } else if (i === 0) {
+                                //上一首
+                                if (--shuffleIndex < 0) {
+                                    shuffleIndex = shuffleArray.length - 1;
+                                }
+                                currentTrack = shuffleArray[shuffleIndex];
+                            }
+                            switchTrack(currentTrack);
+                        }
+
+                        // Fire when track ended
+                        var ended = function () {
+                            pause();
+                            audio.currentTime = 0;
+                            if (isShuffle) {
+                                shufflePlay(1);
+                            } else {
+                                if (currentTrack < playlist.length) switchTrack(++currentTrack);
+                            }
+
+                        }
+
+                        var beforeLoad = function () {
+                            var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
+                        }
+
+                        // Fire when track loaded completely
+                        var afterLoad = function () {
+                            if (autoplay == true) play();
+                        }
+
+                        // Load track
+                        var loadMusic = function (i) {
+                            var item = playlist[i];
+                            while (item.mp3 == "") {
+                                showNotification('歌曲地址为空，已自动跳过');
+                                if (isShuffle) {
+                                    if (++shuffleIndex === shuffleArray.length) {
+                                        shuffleIndex = 0;
+                                    }
+                                    i = currentTrack = shuffleArray[shuffleIndex];
+                                } else {
+                                    currentTrack = ++i;
+                                }
+                                item = playlist[i];
+                            }
+                            var newaudio = $('<audio>').html('<source src="' + item.mp3 + '"><source src="' + item.ogg + '">').appendTo('#player');
+                            $('.cover').html('<img src="' + item.cover + '" alt="' + item.album + '">');
+                            $('.musicTag').html('<strong>' + item.title + '</strong><span> - </span><span class="artist">' + item.artist + '</span>');
+                            $('#playlist li').removeClass('playing').eq(i).addClass('playing');
+                            audio = newaudio[0];
+                            audio.addEventListener('progress', beforeLoad, false);
+                            audio.addEventListener('durationchange', beforeLoad, false);
+                            audio.addEventListener('canplay', afterLoad, false);
+                            audio.addEventListener('ended', ended, false);
+                        }
+
+                        loadMusic(currentTrack);
+
+                        $('.playback').on('click', function () {
+                            if ($(this).hasClass('playing')) {
+                                play();
+                            } else {
+                                pause();
+                            }
+                        });
+
+                        $('.rewind').on('click', function () {
+                            if (isShuffle) {
+                                shufflePlay(0);
+                            } else {
+                                switchTrack(--currentTrack);
+                            }
+                        });
+
+                        $('.fastforward').on('click', function () {
+                            if (isShuffle) {
+                                shufflePlay(1);
+                            } else {
+                                switchTrack(++currentTrack);
+                            }
+                        });
+
+                        $('#playlist li').each(function (i) {
+                            $(this).on('click', function () {
+                                if (isShuffle) {
+                                    for (var j = 0; j < shuffleArray.length; j++) {
+                                        if (shuffleArray[j] === i) {
+                                            shuffleIndex = j;
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    currentTrack = i;
+                                }
+                                switchTrack(i);
+                            });
+                        });
+
+
+                        $("#player .cover").on('click', function () {
+                            isShuffle = !isShuffle;
+                            if (isShuffle) {
+                                $("#player .cover").attr("title", "点击关闭随机播放");
+                                showNotification('已开启随机播放');
+
+                                var temp = [];
+                                for (var i = 0; i < playlist.length; i++) {
+                                    temp[i] = i;
+                                }
+                                shuffleArray = shuffle(temp);
+                                for (var j = 0; j < shuffleArray.length; j++) {
+                                    if (shuffleArray[j] === currentTrack) {
+                                        shuffleIndex = j;
+                                        break;
+                                    }
+                                }
+                                localStorage.qplayer_shuffle_array = JSON.stringify(shuffleArray);
+                            } else {
+                                $("#player .cover").attr("title", "点击开启随机播放");
+                                showNotification('已关闭随机播放');
+                                localStorage.removeItem('qplayer_shuffle_array');
+                            }
+                            localStorage.qplayer = isShuffle;
+                        });
+
+
+                        var startX, endX;
+                        $('#player .ctrl .musicTag').mousedown(function (event) {
+                            startX = event.screenX;
+                        }).mousemove(function (event) {
+                            //鼠标左键
+                            if (event.which === 1) {
+                                endX = event.screenX;
+                                var seekRange = Math.round((endX - startX) / 678 * 100);
+                                audio.currentTime += seekRange;
+                                setProgress(audio.currentTime);
+                            }
+                        });
+
+                        $('#player .ctrl .musicTag').bind('touchstart', function (event) {
+                            startX = event.originalEvent.targetTouches[0].screenX;
+                        }).bind('touchmove', function (event) {
+                            endX = event.originalEvent.targetTouches[0].screenX;
+                            var seekRange = Math.round((endX - startX) / 678 * 100);
+                            audio.currentTime += seekRange;
+                            setProgress(audio.currentTime);
+                        });
+
+                    })(jQuery);
+                }
+            },
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            }
+        });
+        return playlist;
+    }
+
+    function nextpage() {
+        n = n + 30;
+        var v = $('#neirong').val();
+        $('#load').removeClass('hide');
+        $('.lib').remove();
+        $.ajax({
+            url: "{% url 'countent:music2' %}",
+            type: "post",
+            data: {"name": v, 'num': n},
+            success: function (ids) {
+                ids = JSON.parse(ids);
+                if (ids.artist_id == 123) {
+                    $('#load').addClass('hide');
+                    $('#neirong').attr('placeholder', '出错了请重试!');
+                } else {
+                    $('#load').addClass('hide');
+                    playlist = ids;
+                    (function ($) {
+                        // Settings
+                        var isShowNotification = false,
+                            isInitMarquee = true,
+                            shuffleArray = [],
+                            shuffleIndex,
+                            autoClearTimer,
+                            autoShowTimer,
+                            isFirstPlay = localStorage.qplayer == undefined ? true : false,
+                            isShuffle = localStorage.qplayer == undefined ? false : localStorage.qplayer === 'true' ? true : false;
+
+                        // Load playlist
+                        for (var i = 0; i < playlist.length; i++) {
+                            var item = playlist[i];
+                            $('#playlist').append('<li class="lib" style="overflow:hidden;"><strong style="margin-left: 5px;">' + item.title + '</strong><span style="float: right;" class="artist">' + item.artist + '</span></li>');
+                            if (item.mp3 == "") {
+                                $('#playlist li').eq(i).css('color', '#ddd');
+                            }
+                        }
+
+                        var currentTrack = 0, audio, timeout;
+                        var shuffle_array = localStorage.qplayer_shuffle_array;
+
+                        if (isShuffle && shuffle_array != undefined && playlist.length === (shuffleArray = JSON.parse(shuffle_array)).length) {
+                            currentTrack = shuffleArray[0];
+                            shuffleIndex = 0;
+                            $('#QPlayer .cover').attr('title', '点击关闭随机播放');
+                        } else {
+                            isShuffle = false;
+                            $('#QPlayer .cover').attr('title', '点击开启随机播放');
+                        }
+
+                        //判断是否显示滚动条
+                        var totalHeight = 0;
+                        for (var i = 0; i < playlist.length; i++) {
+                            totalHeight += ($('#playlist li').eq(i).height() + 6);
+                        }
+                        if (totalHeight > 360) {
+                            $('#playlist').css("overflow", "auto");
+                            if (isShuffle) {
+                                var temp = 0;
+                                for (var j = 0; j < currentTrack; j++) {
+                                    temp += ($('#playlist li').eq(j).height() + 6);
+                                }
+                                $('#playlist').scrollTop(temp);
+                            }
+                        }
+
+                        var play = function () {
+                            audio.play();
+                            if (isRotate) {
+                                $("#player .cover img").css("animation", "9.8s linear 0s normal none infinite rotate");
+                                $("#player .cover img").css("animation-play-state", "running");
+                            }
+                            $('.playback').addClass('playing');
+                            timeout = setInterval(updateProgress, 500);
+                            //超过显示栏运行跑马灯
+                            if (isExceedTag()) {
+                                if (isInitMarquee) {
+                                    initMarquee();
+                                    isInitMarquee = false;
+                                } else {
+                                    $('.marquee').marquee('resume');
+                                }
+                            }
+                        }
+
+                        var pause = function () {
+                            audio.pause();
+                            $("#player .cover img").css("animation-play-state", "paused");
+                            $('.playback').removeClass('playing');
+                            clearInterval(timeout);
+                            if (isExceedTag()) {
+                                $('.marquee').marquee('pause');
+                            }
+                        }
+
+                        // Update progress
+                        var setProgress = function (value) {
+                            var currentSec = parseInt(value % 60) < 10 ? '0' + parseInt(value % 60) : parseInt(value % 60),
+                                ratio = value / audio.duration * 100;
+
+                            $('.timer').html(parseInt(value / 60) + ':' + currentSec);
+                        }
+
+                        var updateProgress = function () {
+                            setProgress(audio.currentTime);
+                        }
+
+                        // Switch track
+                        var switchTrack = function (i) {
+                            if (i < 0) {
+                                track = currentTrack = playlist.length - 1;
+                            } else if (i >= playlist.length) {
+                                track = currentTrack = 0;
+                            } else {
+                                track = i;
+                            }
+
+                            isInitMarquee = true;
+                            $('audio').remove();
+                            loadMusic(track);
+                            play();
+                        }
+
+                        // Shuffle
+                        var shufflePlay = function (i) {
+                            if (i === 1) {
+                                //下一首
+                                if (++shuffleIndex === shuffleArray.length) {
+                                    shuffleIndex = 0;
+                                }
+                                currentTrack = shuffleArray[shuffleIndex];
+
+                            } else if (i === 0) {
+                                //上一首
+                                if (--shuffleIndex < 0) {
+                                    shuffleIndex = shuffleArray.length - 1;
+                                }
+                                currentTrack = shuffleArray[shuffleIndex];
+                            }
+                            switchTrack(currentTrack);
+                        }
+
+                        // Fire when track ended
+                        var ended = function () {
+                            pause();
+                            audio.currentTime = 0;
+                            if (isShuffle) {
+                                shufflePlay(1);
+                            } else {
+                                if (currentTrack < playlist.length) switchTrack(++currentTrack);
+                            }
+
+                        }
+
+                        var beforeLoad = function () {
+                            var endVal = this.seekable && this.seekable.length ? this.seekable.end(0) : 0;
+                        }
+
+                        // Fire when track loaded completely
+                        var afterLoad = function () {
+                            if (autoplay == true) play();
+                        }
+
+                        // Load track
+                        var loadMusic = function (i) {
+                            var item = playlist[i];
+                            while (item.mp3 == "") {
+                                showNotification('歌曲地址为空，已自动跳过');
+                                if (isShuffle) {
+                                    if (++shuffleIndex === shuffleArray.length) {
+                                        shuffleIndex = 0;
+                                    }
+                                    i = currentTrack = shuffleArray[shuffleIndex];
+                                } else {
+                                    currentTrack = ++i;
+                                }
+                                item = playlist[i];
+                            }
+                            var newaudio = $('<audio>').html('<source src="' + item.mp3 + '"><source src="' + item.ogg + '">').appendTo('#player');
+                            $('.cover').html('<img src="' + item.cover + '" alt="' + item.album + '">');
+                            $('.musicTag').html('<strong>' + item.title + '</strong><span> - </span><span class="artist">' + item.artist + '</span>');
+                            $('#playlist li').removeClass('playing').eq(i).addClass('playing');
+                            audio = newaudio[0];
+                            audio.addEventListener('progress', beforeLoad, false);
+                            audio.addEventListener('durationchange', beforeLoad, false);
+                            audio.addEventListener('canplay', afterLoad, false);
+                            audio.addEventListener('ended', ended, false);
+                        }
+
+                        loadMusic(currentTrack);
+
+                        $('.playback').on('click', function () {
+                            if ($(this).hasClass('playing')) {
+                                play();
+                            } else {
+                                pause();
+                            }
+                        });
+
+                        $('.rewind').on('click', function () {
+                            if (isShuffle) {
+                                shufflePlay(0);
+                            } else {
+                                switchTrack(--currentTrack);
+                            }
+                        });
+
+                        $('.fastforward').on('click', function () {
+                            if (isShuffle) {
+                                shufflePlay(1);
+                            } else {
+                                switchTrack(++currentTrack);
+                            }
+                        });
+
+                        $('#playlist li').each(function (i) {
+                            $(this).on('click', function () {
+                                if (isShuffle) {
+                                    for (var j = 0; j < shuffleArray.length; j++) {
+                                        if (shuffleArray[j] === i) {
+                                            shuffleIndex = j;
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    currentTrack = i;
+                                }
+                                switchTrack(i);
+                            });
+                        });
+
+
+                        $("#player .cover").on('click', function () {
+                            isShuffle = !isShuffle;
+                            if (isShuffle) {
+                                $("#player .cover").attr("title", "点击关闭随机播放");
+                                showNotification('已开启随机播放');
+
+                                var temp = [];
+                                for (var i = 0; i < playlist.length; i++) {
+                                    temp[i] = i;
+                                }
+                                shuffleArray = shuffle(temp);
+                                for (var j = 0; j < shuffleArray.length; j++) {
+                                    if (shuffleArray[j] === currentTrack) {
+                                        shuffleIndex = j;
+                                        break;
+                                    }
+                                }
+                                localStorage.qplayer_shuffle_array = JSON.stringify(shuffleArray);
+                            } else {
+                                $("#player .cover").attr("title", "点击开启随机播放");
+                                showNotification('已关闭随机播放');
+                                localStorage.removeItem('qplayer_shuffle_array');
+                            }
+                            localStorage.qplayer = isShuffle;
+                        });
+
+
+                        var startX, endX;
+                        $('#player .ctrl .musicTag').mousedown(function (event) {
+                            startX = event.screenX;
+                        }).mousemove(function (event) {
+                            //鼠标左键
+                            if (event.which === 1) {
+                                endX = event.screenX;
+                                var seekRange = Math.round((endX - startX) / 678 * 100);
+                                audio.currentTime += seekRange;
+                                setProgress(audio.currentTime);
+                            }
+                        });
+
+                        $('#player .ctrl .musicTag').bind('touchstart', function (event) {
+                            startX = event.originalEvent.targetTouches[0].screenX;
+                        }).bind('touchmove', function (event) {
+                            endX = event.originalEvent.targetTouches[0].screenX;
+                            var seekRange = Math.round((endX - startX) / 678 * 100);
+                            audio.currentTime += seekRange;
+                            setProgress(audio.currentTime);
+                        });
+
+                    })(jQuery);
+                }
+            },
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            }
+        });
+        return playlist;
+    }
+
+    {#console.log( typeof playlist)#}
+</script>
+<script type="text/javascript" src="/static/js/music/player.js"></script>
+<script>
+    function bgChange() {
+        var lis = $('.lib');
+        for (var i = 0; i < lis.length; i += 2)
+            lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
+    }
+
+    window.onload = bgChange;
+
+
+</script>
+{#pjax#}
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.pjax.js"></script>
+<script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+<script src="/static/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery-ui.js"></script>
+<script src="/static/js/slicknav.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/waypoints.min.js"></script>
+<script src="/static/js/isotope.pkgd.min.js"></script>
+<script src="/static/js/imagesloaded.pkgd.min.js"></script>
+<script src="/static/js/magnific-popup.min.js"></script>
+<script src="/static/js/linebar.js"></script>
+<script src="/static/js/counterup.min.js"></script>
+<script src="/static/js/scrolltop.js"></script>
+<script src="/static/js/wow.min.js"></script>
+<script src="/static/js/plugins.js"></script>
+<script src="/static/js/slick.min.js"></script>
+<script src="/static/js/gritter/js/jquery.gritter.js"></script>
+<script src="/static/js/nice-select.min.js"></script>
+
+{% block jss %}
+{% endblock %}
+{% block js %}
+{% endblock %}
+<script id="shows"></script>
+<script>
+
+
+    $(document).pjax('a[data-pjax]', '#showser', {fragment: '#aim-pjax', timeout: 8000});
+
+
+    // pjax链接点击后显示加载动画；
+    $(document).on('pjax:send', function () {
+        NProgress.start();
+    });
+    // pjax链接加载完成后隐藏加载动画；
+    $(document).on('pjax:complete', function () {
+        NProgress.done();
+    });
+</script>
+</body>
+
+</html>

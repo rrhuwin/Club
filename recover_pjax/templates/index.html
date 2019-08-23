@@ -1,0 +1,807 @@
+﻿{% extends 'base.html' %}
+{% block css %}
+    <style>
+        .blog-img-ctg {
+            width: 100%;
+        }
+
+        .blog-img-ctg img {
+            margin-left: 15px;
+        }
+
+        .imgsz {
+            width: 100%;
+            height: 100%;
+            margin-top: 40px;
+        }
+
+        .bbb:before {
+            background: rgba(37, 37, 37, 0.3);
+        }
+
+        .sec-p-100 {
+            padding: 20px 0;
+            margin: 65px 0px 25px 0px;
+        }
+
+        .fu {
+            float: left;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .kong {
+
+        }
+    </style>
+{% endblock %}
+
+{% block count %}
+    <div id="aim-pjax">
+        <div class="slider-area">
+            <div class="mayabi-main-slider text-center">
+                <div class="mayabi-single-slider slid-bg-1">
+                    <div class="mayabi-single-table">
+                        <div class="mayabi-single-tablecell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 style="font-size: 40px" class="kong">mayabi <br/>这个网站虽然不好看，但是是个好网站！</h1>
+                                        <p class="kong" style="font-size: 20px;margin-left: 800px;color: white">--鲁迅</p>
+                                        <a href="/count/login" class="btn btn-type-2 kong">加入我们</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#    图片轮播#}
+        <div class="about-area sec-p-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="section-title text-center mb-70">
+                            <h2 id="we">我们的家园</h2>
+                            <img src="/static/img/separetor-1.png" alt="separetor"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about-img owl-carousel owl-theme">
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/lvs4.jpg" alt="lvs4-1" class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/ls001.jpg" alt="ls001-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/6.jpg" alt="6-2" class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/ls002.jpg" alt="ls002-2" class="img-fluid"/></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-img owl-carousel owl-theme">
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wur12.jpg" alt="wur12-1" class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wr02.jpg" alt="wr02-2" class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wuran10.jpg" alt="wuran10-2" class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wuran0002.jpg" alt="wuran0002-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wuran0003.jpg" alt="wuran0003-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                            <div class="about-single-img">
+                                <a href="#"><img src="/static/img/index/wuran0004.jpg" alt="wuran0004-2"
+                                                 class="img-fluid"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="section-title text-center mb-70" style="margin-bottom: 0px">
+                            <p style="float: left;font-size: 15px;color: black;font-weight: 900">曾经</p>
+                            <p style="float: right;font-size: 15px;color: black;font-weight: 900">现在</p><br/>
+                            <p style="font-size: 18px;font-weight: 900;color: black;margin-top: 15px">保护环境，让我们一起行动起来</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Lunbo-video">
+
+                <div class="Lunbo-video-cont" style="width: 1105px">
+                    <div class="video">
+                        <div><img src="/static/img/left.png" class="Lunbobutton"></div>
+                        <div>
+                            <!-- 这里改视频源 -->
+                            <ul>
+                                <li class="video1">
+                                    <div>
+                                        <video id="v001" onmouseover="mouseOver1()" onmouseout="mouseOut1()"
+                                               src="https://vd2.bdstatic.com/mda-iirhgma6irr4fcv7/sc/mda-iirhgma6irr4fcv7.mp4?auth_key=1566380898-0-0-779c4aa221f3b91d7af74458b9b45eb1&bcevod_channel=searchbox_feed&pd=bjh&abtest=all"
+                                               preload="auto"
+                                               poster="https://ss0.bdstatic.com/9bA1vGfa2gU2pMbfm9GUKT-w/timg?wisealaddin&sec=1566379074&di=a84db993e44413ed676a96f55edeba27&quality=100&size=f320_180&src=http%3A%2F%2Ft11.baidu.com%2Fit%2Fu%3D4273176304%2C4133469319%26fm%3D171%26app%3D20%26f%3DJPEG%3Fw%3D960%26h%3D540%26s%3D6EE3C85A0582D9410E44525E030040F5"></video>
+                                    </div>
+                                </li>
+                                <li class="video2">
+                                    <div>
+                                        <video id="v002" onmouseover="mouseOver2()" onmouseout="mouseOut2()"
+                                               src="https://vd4.bdstatic.com/mda-imgt063ts56iw229/sc/mda-imgt063ts56iw229.mp4?auth_key=1566381031-0-0-4f4dce7646978f7771f597533479b654&bcevod_channel=searchbox_feed&pd=bjh&abtest=all"
+                                               preload="auto"
+                                               poster="https://ss0.bdstatic.com/9bA1vGfa2gU2pMbfm9GUKT-w/timg?wisealaddin&sec=1566379224&di=95ce84af0261a109ddc2270b160ba75f&quality=100&size=f320_180&src=http%3A%2F%2Ft12.baidu.com%2Fit%2Fu%3D1486977815%2C3711001589%26fm%3D171%26app%3D20%26f%3DJPEG%3Fw%3D960%26h%3D540%26s%3D3142DF14428070EE1810D1F2030000B1"></video>
+                                    </div>
+                                </li>
+                                <li class="video3">
+                                    <div>
+                                        <video id="v003" onmouseover="mouseOver3()" onmouseout="mouseOut3()"
+                                               src="https://ksv-video-publish.cdn.bcebos.com/381f7ef92b8c76ce6646e47220f7a85050fd76f8.mp4?auth_key=1612969316-0-0-4ba9c97127cc6a2b18adaa97265060e6"
+                                               preload="auto"
+                                               poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=aefacdaea251f3dec3e7ef26fb9ecd29/ac345982b2b7d0a23f1801f9c6ef76094a369a84.jpg"></video>
+                                    </div>
+                                </li>
+                                <li class="video4">
+                                    <div>
+                                        <video id="v004" onmouseover="mouseOver4()" onmouseout="mouseOut4()"
+                                               src="https://ksv-video-publish.cdn.bcebos.com/b0d49288d533d067d4c1c26807fe7b4f3f3aa91b.mp4?auth_key=1613018412-0-0-c7d34702261ebef1e204a3012da3291c"
+
+                                               preload="auto"
+                                               poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=6143684aa9c27d1ea5736d8674a59058/b03533fa828ba61e1daf12c14c34970a314e599f.jpg"></video>
+                                    </div>
+                                </li>
+                                <li class="video5">
+                                    <div>
+                                        <video id="v005" onmouseover="mouseOver5()" onmouseout="mouseOut5()"
+                                               src="https://ksv-video-publish.cdn.bcebos.com/7398a815963d9cf2800acf01c60f89705c7b5e3f.mp4?auth_key=1612969316-0-0-18f86ba5c7ee4d20a70a0a8f4f8ef672"
+                                               preload="auto"
+                                               poster="https://hiphotos.baidu.com/baike/whcrop%3D640%2C360/sign=7f2932db6663f6241c086f41e834d6ce/7af40ad162d9f2d3da1a9d0da4ec8a136227cccd.jpg"></video>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div><img src="/static/img/right.png" class="Lunbobutton"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {# 垃圾分类点对点系列#}
+        <div class="portfolio-area text-center mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 mx-auto" style="margin-top: 100px">
+                        <img src="/static/img/index/zhu01.png" class="imgsz" alt="">
+                    </div>
+
+                    <div class="col-md-6 mx-auto" style="margin-top: 100px">
+                        <div class="section-title text-center mb-70">
+                            <h2>垃圾分类点对点</h2>
+                            <img src="/static/img/separetor-1.png" alt="separetor"/>
+                            <div class="about-img1 owl-carousel owl-theme">
+                                <div class="about-single-img">
+                                    <a href="#"><img src="/static/img/index/glt.png" alt="about-1"
+                                                     class="img-fluid"/></a>
+                                </div>
+                                <div class="about-single-img">
+                                    <a href="#"><img src="/static/img/index/st.png" alt="about-2"
+                                                     class="img-fluid"/></a>
+                                </div>
+                                <div class="about-single-img">
+                                    <a href="#"><img src="/static/img/index/hst.png" alt="about-2"
+                                                     class="img-fluid"/></a>
+                                </div>
+                                <div class="about-single-img">
+                                    <a href="#"><img src="/static/img/index/yht.png" alt="about-2"
+                                                     class="img-fluid"/></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mx-auto" style="margin-top: 100px">
+                        <img src="/static/img/index/zhu.png" class="imgsz" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <!-- about 万能搜 end -->
+            <div class="subscribe-form sec-p-100 text-center blue-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <h2>万能搜搜</h2>
+                            <p>搜垃圾，搜废品~</p>
+                            <div class="subscribe-input">
+                                <input id="sear" class="form-control" type="text" placeholder="请输入你想查询的关键字" name="laji">
+                                <button type="button" class="btn btn-type-4" onclick="searchs()">搜搜</button>
+                            </div>
+                            <div>
+                                <div>
+                                    <h3 id="title5" class="hide"
+                                        style="font-size: 18px;margin-top: 20px;width: 300px;text-align: left;margin-bottom: 10px">
+                                        为您搜到以下结果：</h3>
+                                </div>
+                                <div id="answer" style="padding-bottom: 2px;">
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#        选择#}
+            <ul class="portfolio-menu-1">
+                <li data-filter="*" class="active">全部</li>
+                <li data-filter=".desig">干垃圾</li>
+                <li data-filter=".dvelo">湿垃圾</li>
+                <li data-filter=".illus">可回收垃圾</li>
+                <li data-filter=".photo">有害垃圾</li>
+            </ul>
+            {#        各种垃圾 -->#}
+            <div class="typ1-all-folio" style="margin: 0 auto;width: 80%">
+                <div class="single-folio typ1-folios-item illus wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/hs04.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/yh01.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s02.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/hs02.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s01.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s05.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl04.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/hs01.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/yh02.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item illus wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/hs03.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/yh03.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s04.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s03.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item dvelo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/s06.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item  desig wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl02.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl01.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl03.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl05.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/yh04.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item desig  wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/gl06.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item  illus wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/hs05.jpg" alt="" class="img-fluid"/>
+                </div>
+                <div class="single-folio typ1-folios-item photo wow zoomIn" data-wow-duration="1s">
+                    <img src="/static/img/index/yh05.jpg" alt="" class="img-fluid"/>
+                </div>
+            </div>
+            <a href="#" class="btn btn-type-3 mt-30">查看全部</a>
+        </div>
+
+        <div class="blog-area sec-p-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="section-title mb-70 text-center">
+                            <h2>环保热点</h2>
+                            <img src="/static/img/separetor-1.png" alt="separetor"/>
+                            <p>环保在线~</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="single-blog">
+                            <div class="blog-img-ctg">
+                                {{ h.img_url |safe }}
+                            </div>
+                            <div class="single-blog-content">
+                                {{ h.s_title |safe }}
+                                {{ h.s_ab |safe }}
+                                <a href="{% url 'countent:news' tp='h' page=1 %}" class="btn" data-pjax="true">more <i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-blog">
+                            <div class="blog-img-ctg">
+                                {{ s.img_url |safe }}
+                            </div>
+                            <div class="single-blog-content">
+                                {{ s.s_title |safe }}
+                                {{ s.s_ab |safe }}
+                                <a href="{% url 'countent:news' tp='s' page=1 %}" class="btn" data-pjax="true">more <i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-blog">
+                            <div class="blog-img-ctg">
+                                {{ q.img_url |safe }}
+                            </div>
+                            <div class="single-blog-content">
+                                {{ q.s_title |safe }}
+                                {{ q.s_ab |safe }}
+                                <a href="{% url 'countent:news' tp='q' page=1 %}" class="btn" data-pjax="true" h>more <i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- blog area end -->
+        {% if request.user.is_authenticated %}
+            <script>
+                $('.mayabi-single-slider').addClass('bbb');
+                $('h1.kong').text('欢迎加入环保大家庭');
+                $('a.kong').text('欢迎加入环保大家庭');
+                $('a.kong').attr('href', '#we');
+            </script>
+        {% else %}
+            <script>
+                $('.mayabi-single-slider').removeClass('bbb')
+            </script>
+        {% endif %}
+        <script>
+            window.onload = function () {
+                $("a").removeAttr("target");
+            };
+
+            function searchs() {
+
+                $.ajax({
+                    url: '{%  url "apis:search" %}',
+                    type: 'get',
+                    data: {'kw': $('#sear').val()},
+                    success: function (msg) {
+                        $('#title5').removeClass('hide');
+                        $('#answer').children().remove();
+                        var lan = msg.ak;
+                        if (lan == 1) {
+                            $('#title5').html('好像找不到哦，换一个姿势试一试~');
+                        } else {
+                            $('#title5').html('为您搜到以下结果：');
+
+                            var num = (Object.keys(msg.detail).length);
+                            for (var i = num - 1; i >= 0; i--) {
+                                var page = $('<p>');
+                                var span = $('<span>');
+                                var br = $('<Br/>');
+                                page.html(Object.keys(msg.detail)[i]);
+                                page.attr('class', 'fu');
+                                span.html(":" + Object.values(msg.detail)[i]);
+                                span.attr('class', 'fu');
+                                $('#answer').append(page);
+                                $('#answer').append(span);
+                                $('#answer').append(br);
+                            }
+                        }
+                    }
+                })
+            }
+        </script>
+        <script>
+            (function ($) {
+                "use strict";
+
+                /* ---------------------------------------------- /*
+                /* ---------------------------------------------- */
+
+                $(window).ready(function () {
+                    $('.mayabi-loader').fadeOut();
+                    $('#preloader').delay(200).fadeOut('slow');
+
+                });
+
+                $(document).ready(function () {
+                    /*----------------------------
+                        Mobile Menu Active
+                        ------------------------------*/
+                    $("#navigation").slicknav({
+                        prependTo: ".responsive-menu-wrap"
+                    });
+
+                    /*----------------------------
+                            about slider Active
+                        ------------------------------*/
+                    $(".about-img").owlCarousel({
+                        loop: true,
+                        autoplay: true,
+                        smartSpeed: 1000,
+                        dots: false,
+                        nav: false,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            600: {
+                                items: 2
+                            },
+                            1000: {
+                                items: 2
+                            }
+                        }
+                    });
+                    $(".about-img1").owlCarousel({
+                        loop: true,
+                        autoplay: true,
+                        smartSpeed: 1000,
+                        dots: false,
+                        nav: false,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            600: {
+                                items: 4
+                            },
+                            1000: {
+                                items: 4
+                            }
+                        }
+                    });
+                    /*----------------------------
+                            Skill Bar1 Active
+                        ------------------------------*/
+                    $('#】、').LineProgressbar({
+                        percentage: 90,
+                        fillBackgroundColor: '#f95759',
+                        backgroundColor: '#ffffff',
+                        height: '10px',
+                    });
+
+                    $('#skill-bar2').LineProgressbar({
+                        percentage: 70,
+                        fillBackgroundColor: '#f95759',
+                        backgroundColor: '#ffffff',
+                        height: '10px',
+                    });
+
+                    $('#skill-bar3').LineProgressbar({
+                        percentage: 95,
+                        fillBackgroundColor: '#f95759',
+                        backgroundColor: '#ffffff',
+                        height: '10px',
+                    });
+
+                    $('#skill-bar4').LineProgressbar({
+                        percentage: 80,
+                        fillBackgroundColor: '#f95759',
+                        backgroundColor: '#ffffff',
+                        height: '10px',
+                    });
+
+                    /*----------------------------
+                            Counter Active
+                        ------------------------------*/
+
+
+                    /*----------------------------
+                            scrolltop active
+                        ------------------------------*/
+                    $('body').materialScrollTop();
+                    /*----------------------------
+                            popup active
+                        ------------------------------*/
+                    $(".video-view").magnificPopup({
+                        type: "iframe"
+                    });
+
+                    /*----------------------------
+                            isotop type 1 active
+                        ------------------------------*/
+                    $('.portfolio-menu-1 li').on('click', function () {
+                        $('.portfolio-menu-1 li.active').removeClass('active');
+                        $(this).addClass('active');
+                    });
+
+                    $('.container').imagesLoaded(function () {
+
+                        $('.portfolio-menu-1 li').on('click', function () {
+                            var filterValue = $(this).attr('data-filter');
+                            $folios1.isotope({
+                                filter: filterValue
+                            });
+                        });
+                        var $folios1 = $('.typ1-all-folio').isotope({
+                            itemSelector: '.typ1-folios-item',
+                            percentPosition: true,
+                            layoutMode: 'fitRows',
+                            transitionDuration: '0.9s',
+                            // only opacity for reveal/hide transition
+                            hiddenStyle: {
+                                opacity: 0
+                            },
+                            visibleStyle: {
+                                opacity: 1
+                            },
+                            masonry: {
+                                // use outer width of grid-sizer for columnWidth
+                                columnWidth: '.typ1-folios-item'
+                            },
+                        });
+                    });
+                    /*----------------------------
+                               isotop type 2 active
+                        ------------------------------*/
+                    $('.container').imagesLoaded(function () {
+                        $('.portfolio-menu-1 li').on('click', function () {
+                            var filterValue = $(this).attr('data-filter');
+                            $folios2.isotope({
+                                filter: filterValue
+                            });
+                        });
+                        var $folios2 = $('.typ2-all-folio').isotope({
+                            itemSelector: '.typ2-folios-item',
+                            percentPosition: true,
+                            layoutMode: 'fitRows',
+                            transitionDuration: '0.9s',
+                            // only opacity for reveal/hide transition
+                            hiddenStyle: {
+                                opacity: 0
+                            },
+                            visibleStyle: {
+                                opacity: 1
+                            },
+                            masonry: {
+                                // use outer width of grid-sizer for columnWidth
+                                columnWidth: '.typ2-folios-item'
+                            },
+                        });
+                    });
+                    /*----------------------------
+                               Isotop type 3 active
+                        ------------------------------*/
+                    $('.container').imagesLoaded(function () {
+
+                        $('.portfolio-menu-1 li').on('click', function () {
+                            var filterValue = $(this).attr('data-filter');
+                            $folios3.isotope({
+                                filter: filterValue
+                            });
+                        });
+                        var $folios3 = $('.typ3-all-folio').isotope({
+                            itemSelector: '.typ3-folios-item',
+                            percentPosition: true,
+                            transitionDuration: '0.9s',
+                            // only opacity for reveal/hide transition
+                            hiddenStyle: {
+                                opacity: 0
+                            },
+                            visibleStyle: {
+                                opacity: 1
+                            },
+                            masonry: {
+                                // use outer width of grid-sizer for columnWidth
+                                columnWidth: '.typ3-folios-item'
+                            }
+                        });
+                    });
+                    /*----------------------------
+                            NiceSelect Active
+                        ------------------------------*/
+                    $('select').niceSelect();
+
+
+                    /*----------------------------
+                            WOW active
+                        ------------------------------*/
+                    new WOW().init();
+
+                });
+
+            })(jQuery);
+        </script>
+        <script>
+            $(function () {
+                var click = 0;
+                var right = 0;      //解决第一次右边点击没反应
+                $('.video>div:last-child').click(function () {    //当点击左边按钮
+                    for (var i = 0; i < 5; i++) {
+                        document.getElementsByTagName('video')[i].pause();
+                    }
+                    click += 1;
+                    if (click >= 6) click = 1;
+                    right = 1;
+                    $('.video li:nth-of-type(' + (((click + 0) <= 5) ? (click + 0) : (click + 0 - 5)) + ')').attr('class', 'video5');
+                    $('.video li:nth-of-type(' + (((click + 1) <= 5) ? (click + 1) : (click + 1 - 5)) + ')').attr('class', 'video1');
+                    $('.video li:nth-of-type(' + (((click + 2) <= 5) ? (click + 2) : (click + 2 - 5)) + ')').attr('class', 'video2');
+                    $('.video li:nth-of-type(' + (((click + 3) <= 5) ? (click + 3) : (click + 3 - 5)) + ')').attr('class', 'video3');
+                    $('.video li:nth-of-type(' + (((click + 4) <= 5) ? (click + 4) : (click + 4 - 5)) + ')').attr('class', 'video4');
+                })
+                $('.video>div:first-child').click(function () {  //当点击右边按钮
+                    for (var i = 0; i < 5; i++) {
+                        document.getElementsByTagName('video')[i].pause();
+                    }
+                    click -= 1;
+                    if (click <= 0) click = 5;
+                    if (!right) click = 4;  //解决第一次右边点击没反应
+                    right = 1;
+                    $('.video li:nth-of-type(' + (((click + 0) <= 5) ? (click + 0) : (click + 0 - 5)) + ')').attr('class', 'video5');
+                    $('.video li:nth-of-type(' + (((click + 1) <= 5) ? (click + 1) : (click + 1 - 5)) + ')').attr('class', 'video1');
+                    $('.video li:nth-of-type(' + (((click + 2) <= 5) ? (click + 2) : (click + 2 - 5)) + ')').attr('class', 'video2');
+                    $('.video li:nth-of-type(' + (((click + 3) <= 5) ? (click + 3) : (click + 3 - 5)) + ')').attr('class', 'video3');
+                    $('.video li:nth-of-type(' + (((click + 4) <= 5) ? (click + 4) : (click + 4 - 5)) + ')').attr('class', 'video4');
+                })
+            })
+            //播放完后
+
+            //控制条
+            function mouseOver1() {
+                var video = document.getElementById("v001");
+                video.controls = true;
+            }
+
+            function mouseOut1() {
+                var video = document.getElementById("v001");
+                video.controls = false;
+            }
+
+            function mouseOver2() {
+                var video = document.getElementById("v002");
+                video.controls = true;
+            }
+
+            function mouseOut2() {
+                var video = document.getElementById("v002");
+                video.controls = false;
+            }
+
+            function mouseOver3() {
+                var video = document.getElementById("v003");
+                video.controls = true;
+            }
+
+            function mouseOut3() {
+                var video = document.getElementById("v003");
+                video.controls = false;
+            }
+
+            function mouseOver4() {
+                var video = document.getElementById("v004");
+                video.controls = true;
+            }
+
+            function mouseOut4() {
+                var video = document.getElementById("v004");
+                video.controls = false;
+            }
+
+            function mouseOver5() {
+                var video = document.getElementById("v005");
+                video.controls = true;
+            }
+
+            function mouseOut5() {
+                var video = document.getElementById("v005");
+                video.controls = false;
+            }
+
+        </script>
+
+        <!-- subscribe form area start -->
+
+        <!-- subscribe form area end -->a
+        {#    <!-- footer area start -#}
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="/static/js/main.js"></script>
+    <script type="text/javascript" src="/static/js/videoLunbo.js"></script>
+
+    {% if request.user.is_authenticated %}
+        <script>
+            $('.mayabi-single-slider').addClass('bbb');
+            $('h1.kong').text('欢迎加入环保大家庭');
+            $('a.kong').text('欢迎加入环保大家庭');
+            $('a.kong').attr('href', '#we');
+        </script>
+    {% else %}
+        <script>
+            $('.mayabi-single-slider').removeClass('bbb')
+        </script>
+    {% endif %}
+    <script>
+        window.onload = function () {
+            $("a").removeAttr("target");
+        };
+
+        function searchs() {
+
+            $.ajax({
+                url: '{%  url "apis:search" %}',
+                type: 'get',
+                data: {'kw': $('#sear').val()},
+                success: function (msg) {
+                    $('#title5').removeClass('hide');
+                    $('#answer').children().remove();
+                    var lan = msg.ak;
+                    if (lan == 1) {
+                        $('#title5').html('好像找不到哦，换一个姿势试一试~');
+                    } else {
+                        $('#title5').html('为您搜到以下结果：');
+
+                        var num = (Object.keys(msg.detail).length);
+                        for (var i = num - 1; i >= 0; i--) {
+                            var page = $('<p>');
+                            var span = $('<span>');
+                            var br = $('<Br/>');
+                            page.html(Object.keys(msg.detail)[i]);
+                            page.attr('class', 'fu');
+                            span.html(":" + Object.values(msg.detail)[i]);
+                            span.attr('class', 'fu');
+                            $('#answer').append(page);
+                            $('#answer').append(span);
+                            $('#answer').append(br);
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+    {#    <script type="text/javascript" src="/static/js/jquery.min.js"></script>#}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block count %}
+     <div id="aim-pjax">
+    <div class="row wrapper">
+
+        <div class="col-md-12 wrapper ">
+
+            <div class="cistLift" style="width: 1000px">
+
+                <div class="leftTop">
+                    {{ content.title|safe }}
+                    <div class="qefwer">文章来源：搜狐网</div>
+                </div>
+                <div class="newsContent">
+                    {{ content.content|safe }}
+                </div>
+                <div class="refer">文章来源：搜狐网</div>
+
+            </div>
+
+        </div>
+{#        <div class="col-md-3"><p>asdsadsadsad</p></div>#}
+
+    </div>
+
+    <script>
+        $("p:has(img)").addClass('forp')
+    </script>
+       <script>
+                $(document).pjax('a[data-pjax]', '#showser', {fragment: '#aim-pjax', timeout: 8000});
+
+
+                // pjax链接点击后显示加载动画；
+                $(document).on('pjax:send', function () {
+                    NProgress.start();
+                });
+                // pjax链接加载完成后隐藏加载动画；
+                $(document).on('pjax:complete', function () {
+                    NProgress.done();
+                });
+            </script>
+     </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block count %}
+    <div id="aim-pjax">
+        <div class="info-container">
+            <div class="info-container-title">
+                <h2>环保小妙招~</h2>
+            </div>
+            <div class="info-container-list clearfix">
+                {% for i in cat %}
+                    <div class="info-listItem">
+                        <dl class="info-listItem-list">
+                            <dt>
+                                <a href="#">
+                                    <img src="{{ i.img_url }}" alt="">
+                                    <span>{{ i.s_title }}</span>
+                                </a>
+                            </dt>
+                        </dl>
+                        <a href="/content/bsi/{{ i.news_id }}" data-pjax="true" class="info-more">查看更多</a>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -221,9 +221,10 @@
                         <dt>
                             <a href="#" id="{{ i.videoid }}" onclick="taga(this,{{ j }})">
                                 <img src="{{ i.imgurl }}" alt="">
-                                <span>{{ i.titles }}【{{ j }}】</span>
                             </a>
                         </dt>
+                                                        <span>{{ i.titles }}【{{ j }}】</span>
+
                     </dl>
                 </div>
                     {% endfor %}
@@ -233,10 +234,12 @@
                             <dt>
                                 <a href="#" id="{{ i.videoid }}" onclick="taga(this,1)">
                                     <img src="{{ i.imgurl }}" alt="">
-                                    <span>{{ i.titles }}</span>
+
                                 </a>
                             </dt>
+                    <span>{{ i.titles }}</span>
                         </dl>
+
                     </div>
                 {% endif %}
             {% endfor %}

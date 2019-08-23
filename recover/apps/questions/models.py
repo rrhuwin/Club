@@ -1,6 +1,8 @@
 from django.db import models
 from apps.count.models import User
+from ckeditor.fields import RichTextField
 # 含文件上传
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 # Create your models here.
